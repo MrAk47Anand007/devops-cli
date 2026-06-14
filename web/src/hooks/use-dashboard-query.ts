@@ -1,4 +1,4 @@
-import { useEffect, useState, type DependencyList } from "react";
+import { useEffect, useRef, useState, type DependencyList } from "react";
 
 interface DashboardQueryState<T> {
   data: T | null;
@@ -10,11 +10,14 @@ export function useDashboardQuery<T>(
   queryFn: () => Promise<T>,
   deps: DependencyList = []
 ): DashboardQueryState<T> {
+  const queryRef = useRef(queryFn);
   const [state, setState] = useState<DashboardQueryState<T>>({
     data: null,
     error: null,
     loading: true
   });
+
+  queryRef.current = queryFn;
 
   useEffect(() => {
     let cancelled = false;
@@ -25,7 +28,7 @@ export function useDashboardQuery<T>(
       loading: true
     });
 
-    void queryFn()
+    void queryRef.current()
       .then((data) => {
         if (!cancelled) {
           setState({
@@ -48,7 +51,7 @@ export function useDashboardQuery<T>(
     return () => {
       cancelled = true;
     };
-  }, [queryFn, ...deps]);
+  }, deps);
 
   return state;
 }

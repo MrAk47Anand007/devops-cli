@@ -79,6 +79,14 @@ describe("useDashboardEvents", () => {
       expect(result.current.lastEvent).toEqual(payload);
     });
 
+    source.emit("dashboard", new MessageEvent("dashboard", { data: JSON.stringify({ id: "evt-2" }) }));
+
+    await waitFor(() => {
+      expect(result.current.connected).toBe(false);
+      expect(result.current.error).toEqual(new Error("Dashboard event stream payload was invalid."));
+      expect(result.current.lastEvent).toEqual(payload);
+    });
+
     rerender({ enabled: false });
 
     await waitFor(() => {

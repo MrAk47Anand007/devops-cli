@@ -53,4 +53,27 @@ describe("overview page", () => {
       expect(screen.getByRole("alert")).toHaveTextContent("Request failed for /api/services.");
     });
   });
+
+  it("shows an invalid services payload error from the dashboard API", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => ({
+        ok: true,
+        json: async () => ({
+          services: [
+            {
+              id: 123
+            }
+          ]
+        })
+      }))
+    );
+
+    window.history.replaceState({}, "", "/");
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByText("Invalid services response.")).toBeInTheDocument();
+    });
+  });
 });
