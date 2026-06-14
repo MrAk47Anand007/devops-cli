@@ -3,7 +3,7 @@ import { cn } from "../lib/utils";
 const navItems = [
   { label: "Overview", active: true },
   { label: "Automation" },
-  { label: "Review queue" },
+  { label: "Approvals" },
   { label: "Integrations" }
 ];
 
@@ -29,10 +29,10 @@ export function NavSidebar(): JSX.Element {
         <ul className="grid gap-3">
           {navItems.map((item) => (
             <li key={item.label}>
-              <a
-                href="/"
+              <div
+                aria-current={item.active ? "page" : undefined}
                 className={cn(
-                  "flex items-center justify-between rounded-2xl border border-transparent px-4 py-3 text-sm text-slate-300 transition hover:border-cyan-400/30 hover:bg-slate-800/80 hover:text-white",
+                  "flex items-center justify-between rounded-2xl border border-transparent px-4 py-3 text-sm text-slate-300",
                   item.active && "border-cyan-400/30 bg-cyan-400/10 text-white"
                 )}
               >
@@ -40,7 +40,7 @@ export function NavSidebar(): JSX.Element {
                 <span className="text-xs uppercase tracking-[0.3em] text-slate-500">
                   {item.active ? "Live" : "Queue"}
                 </span>
-              </a>
+              </div>
             </li>
           ))}
         </ul>

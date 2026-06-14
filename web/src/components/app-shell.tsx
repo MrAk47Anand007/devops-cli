@@ -7,10 +7,10 @@ export function AppShell({ children }: { children: ReactNode }): JSX.Element {
     <div className="min-h-screen bg-dashboard-glow bg-slate-950 text-slate-50">
       <div className="mx-auto grid min-h-screen max-w-7xl grid-cols-1 gap-6 px-4 py-4 lg:grid-cols-[240px_minmax(0,1fr)] lg:px-6">
         <NavSidebar />
-        <div className="flex min-w-0 flex-col gap-6">
+        <main className="flex min-w-0 flex-col gap-6">
           <StatusRail />
           <div className="min-w-0">{children}</div>
-        </div>
+        </main>
       </div>
     </div>
   );
