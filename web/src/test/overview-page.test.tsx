@@ -8,9 +8,8 @@ describe("overview page", () => {
   });
 
   it("loads services from the dashboard API", async () => {
-    vi.stubGlobal(
-      "fetch",
-      vi.fn(async () => ({
+    const fetchMock = vi.fn(
+      async (_input: RequestInfo | URL, _init?: RequestInit) => ({
         ok: true,
         json: async () => ({
           services: [
@@ -23,8 +22,10 @@ describe("overview page", () => {
             }
           ]
         })
-      }))
+      })
     );
+
+    vi.stubGlobal("fetch", fetchMock);
 
     window.history.replaceState({}, "", "/");
     render(<App />);
@@ -33,6 +34,8 @@ describe("overview page", () => {
       expect(screen.getByText("svc-api")).toBeInTheDocument();
     });
 
+    expect(fetchMock).toHaveBeenCalled();
+    expect(fetchMock.mock.calls[0]?.[0]).toBe("/api/services");
     expect(screen.getByText("API")).toBeInTheDocument();
     expect(screen.getByText("production")).toBeInTheDocument();
     expect(screen.getByText("degraded")).toBeInTheDocument();

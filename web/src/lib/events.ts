@@ -9,19 +9,29 @@ export function connectDashboardEvents(
   const source = new EventSource(`${baseUrl}/api/events/stream`);
 
   source.addEventListener("dashboard", (message) => {
+    let raw: unknown;
+
     try {
-      const raw = JSON.parse((message as MessageEvent<string>).data) as unknown;
-      onEvent(parseDashboardEvent(raw));
+      raw = JSON.parse((message as MessageEvent<string>).data) as unknown;
     } catch (error) {
-      if (
-        error instanceof Error &&
-        error.message === "Dashboard event stream payload was invalid."
-      ) {
-        onError?.(error);
-        return;
-      }
       onError?.(new Error("Dashboard event stream payload was malformed."));
+      return;
     }
+
+    let event: DashboardEvent;
+
+    try {
+      event = parseDashboardEvent(raw);
+    } catch (error) {
+      onError?.(
+        error instanceof Error
+          ? error
+          : new Error("Dashboard event stream payload was invalid.")
+      );
+      return;
+    }
+
+    onEvent(event);
   });
 
   if (onError) {
