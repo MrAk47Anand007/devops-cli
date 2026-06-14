@@ -16,7 +16,16 @@ async function fetchJson<T>(
   if (!response.ok) {
     throw new Error(`Request failed for ${path}.`);
   }
-  return parser(await response.json());
+
+  let payload: unknown;
+
+  try {
+    payload = await response.json();
+  } catch {
+    throw new Error(`Malformed response for ${path}.`);
+  }
+
+  return parser(payload);
 }
 
 export function fetchServices(): Promise<ServicesResponse> {
