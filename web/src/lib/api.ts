@@ -1,6 +1,14 @@
 import {
+  parseAutomationJobsResponse,
+  parseDeploysResponse,
+  parseIncidentResponse,
+  parseIncidentsResponse,
   parseRuntimeLiveResponse,
   parseServicesResponse,
+  type AutomationJobsResponse,
+  type DeploysResponse,
+  type IncidentResponse,
+  type IncidentsResponse,
   type RuntimeLiveResponse,
   type ServicesResponse
 } from "./types";
@@ -34,4 +42,23 @@ export function fetchServices(): Promise<ServicesResponse> {
 
 export function fetchRuntimeLive(): Promise<RuntimeLiveResponse> {
   return fetchJson<RuntimeLiveResponse>("/api/runtime/live", parseRuntimeLiveResponse);
+}
+
+export function fetchDeploys(): Promise<DeploysResponse> {
+  return fetchJson<DeploysResponse>("/api/deploys", parseDeploysResponse);
+}
+
+export function fetchAutomationJobs(): Promise<AutomationJobsResponse> {
+  return fetchJson<AutomationJobsResponse>("/api/automation/jobs", parseAutomationJobsResponse);
+}
+
+export function fetchIncidents(): Promise<IncidentsResponse> {
+  return fetchJson<IncidentsResponse>("/api/incidents", parseIncidentsResponse);
+}
+
+export function fetchIncident(incidentId: string): Promise<IncidentResponse> {
+  return fetchJson<IncidentResponse>(
+    `/api/incidents/${encodeURIComponent(incidentId)}`,
+    parseIncidentResponse
+  );
 }

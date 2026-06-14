@@ -38,6 +38,69 @@ export interface RuntimeLiveResponse {
   updatedAt: string;
 }
 
+export interface DeployRecord {
+  id: string;
+  serviceId: string;
+  status: "healthy" | "degraded" | "failed";
+  version: string;
+  timestamp: string;
+}
+
+export interface DeploysResponse {
+  deploys: DeployRecord[];
+}
+
+export interface AgentExecution {
+  command: string;
+  args: string[];
+  exitCode: number;
+  transcriptPath: string;
+  summary: string;
+  startedAt: string;
+  finishedAt: string;
+}
+
+export interface AutomationJob {
+  id: string;
+  runId: string;
+  source: "github_issue";
+  serviceId: string;
+  githubIssueUrl: string;
+  status:
+    | "queued"
+    | "awaiting_approval"
+    | "approved"
+    | "rejected"
+    | "running_agent"
+    | "completed"
+    | "failed";
+  approvalMessageId: string | null;
+  execution: AgentExecution | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface AutomationJobsResponse {
+  jobs: AutomationJob[];
+}
+
+export interface IncidentRecord {
+  id: string;
+  serviceId: string;
+  status: "open" | "investigating" | "resolved";
+  summary: string;
+  linkedGithub: LinkedGithubReferences | null;
+  timestamp: string;
+}
+
+export interface IncidentsResponse {
+  incidents: IncidentRecord[];
+}
+
+export interface IncidentResponse {
+  incident: IncidentRecord;
+}
+
 export type DashboardEventType =
   | "stream.connected"
   | "scenario.loaded"
@@ -98,6 +161,70 @@ export const RuntimeLiveResponseSchema = z.object({
   updatedAt: z.string()
 });
 
+export const DeployRecordSchema = z.object({
+  id: z.string(),
+  serviceId: z.string(),
+  status: z.enum(["healthy", "degraded", "failed"]),
+  version: z.string(),
+  timestamp: z.string()
+});
+
+export const DeploysResponseSchema = z.object({
+  deploys: z.array(DeployRecordSchema)
+});
+
+export const AgentExecutionSchema = z.object({
+  command: z.string(),
+  args: z.array(z.string()),
+  exitCode: z.number().int(),
+  transcriptPath: z.string(),
+  summary: z.string(),
+  startedAt: z.string(),
+  finishedAt: z.string()
+});
+
+export const AutomationJobSchema = z.object({
+  id: z.string(),
+  runId: z.string(),
+  source: z.enum(["github_issue"]),
+  serviceId: z.string(),
+  githubIssueUrl: z.string(),
+  status: z.enum([
+    "queued",
+    "awaiting_approval",
+    "approved",
+    "rejected",
+    "running_agent",
+    "completed",
+    "failed"
+  ]),
+  approvalMessageId: z.string().nullable(),
+  execution: AgentExecutionSchema.nullable(),
+  createdAt: z.string(),
+  updatedAt: z.string()
+});
+
+export const AutomationJobsResponseSchema = z.object({
+  jobs: z.array(AutomationJobSchema)
+});
+
+export const IncidentRecordSchema = z.object({
+  id: z.string(),
+  serviceId: z.string(),
+  status: z.enum(["open", "investigating", "resolved"]),
+  summary: z.string(),
+  linkedGithub: LinkedGithubReferencesSchema.nullable(),
+  timestamp: z.string()
+});
+
+export const IncidentsResponseSchema = z.object({
+  incidents: z.array(IncidentRecordSchema)
+});
+
+export const IncidentResponseSchema = z.object({
+  incident: IncidentRecordSchema
+});
+
 export const DashboardEventSchema = z.object({
   id: z.string(),
   type: z.enum([
@@ -133,6 +260,22 @@ export function parseServicesResponse(input: unknown): ServicesResponse {
 
 export function parseRuntimeLiveResponse(input: unknown): RuntimeLiveResponse {
   return validatePayload(RuntimeLiveResponseSchema, input, "Invalid runtime live response.");
+}
+
+export function parseDeploysResponse(input: unknown): DeploysResponse {
+  return validatePayload(DeploysResponseSchema, input, "Invalid deploys response.");
+}
+
+export function parseAutomationJobsResponse(input: unknown): AutomationJobsResponse {
+  return validatePayload(AutomationJobsResponseSchema, input, "Invalid automation jobs response.");
+}
+
+export function parseIncidentsResponse(input: unknown): IncidentsResponse {
+  return validatePayload(IncidentsResponseSchema, input, "Invalid incidents response.");
+}
+
+export function parseIncidentResponse(input: unknown): IncidentResponse {
+  return validatePayload(IncidentResponseSchema, input, "Invalid incident response.");
 }
 
 export function parseDashboardEvent(input: unknown): DashboardEvent {
