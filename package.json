@@ -7,6 +7,8 @@
   "scripts": {
     "start": "tsx src/main.ts",
     "cli": "tsx src/cli.ts",
+    "dashboard:api": "tsx src/dashboard/main.ts",
+    "demo:hackathon": "tsx src/demo/hackathon.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "sim": "tsx src/simulator.ts"
