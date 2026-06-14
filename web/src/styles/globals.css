@@ -8,11 +8,22 @@
     --foreground: 210 40% 98%;
     --card: 222 36% 11%;
     --card-foreground: 210 40% 98%;
+    --popover: 222 36% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 191 91% 56%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
     --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 191 91% 56%;
     --muted: 217 33% 18%;
     --muted-foreground: 215 20% 65%;
     --accent: 191 91% 36%;
     --accent-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    --radius: 1.5rem;
     color: hsl(var(--foreground));
     background: hsl(var(--background));
     font-family: "Segoe UI", "Helvetica Neue", sans-serif;
@@ -23,6 +34,10 @@
   * {
     @apply border-border;
     box-sizing: border-box;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
 
   html,
