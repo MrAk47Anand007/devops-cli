@@ -3,11 +3,10 @@ import { render, screen } from "@testing-library/react";
 import App from "../App";
 
 describe("app shell", () => {
-  it("renders the SentinelOps workspace frame", () => {
+  it("renders navigation and live status regions", () => {
     render(<App />);
-    expect(screen.getByText("SentinelOps Control Center")).toBeInTheDocument();
-    expect(screen.getByText("Overview")).toBeInTheDocument();
-    expect(screen.getByRole("navigation", { name: "Primary" })).toBeInTheDocument();
-    expect(screen.getByRole("list")).toBeInTheDocument();
+    expect(screen.getByRole("navigation")).toBeInTheDocument();
+    expect(screen.getByText("Runtime health")).toBeInTheDocument();
+    expect(screen.getByText("Approvals")).toBeInTheDocument();
   });
 });
