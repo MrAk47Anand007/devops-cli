@@ -1,25 +1,48 @@
 # devops-cli
 
-`devops-cli` is the workspace for SentinelOps: an AI-assisted DevOps CLI and agent workflow focused on deploy judgment, rollback decisions, human approvals, and operational memory.
+`devops-cli` now contains the SentinelOps hackathon MVP: a terminal-first deploy-judgment agent that simulates telemetry, chooses `hold` or `rollback` with confidence, escalates when uncertain, and learns from human overrides.
 
-## Current Status
+## MVP Scope
 
-This repository currently contains the planning documents for:
+In scope for this repo:
 
-- A hackathon MVP that simulates production metrics, makes confidence-scored rollback decisions, and learns from human overrides
-- A full-product roadmap that evolves the MVP into a real integration layer for CI/CD, metrics, chat, and deployment systems
+- deterministic simulated deploy telemetry for `healthy`, `degraded`, and `crash`
+- confidence-scored judgment with reasoning and evidence
+- terminal human-override flow
+- JSON incident memory plus append-only audit logging
+- canned decision mode so the demo works without network access
 
-## Repository Contents
+Explicitly out of scope for this implementation:
 
-- `docs/superpowers/plans/2026-06-13-sentinelops-hackathon-mvp.md`
-- `docs/superpowers/plans/2026-06-13-sentinelops-full-product.md`
+- real infra integrations
+- Slack as a required path
+- Kubernetes, Prometheus, Grafana, Loki, RBAC, ACP, and multi-tenant features
+- the full-product platform roadmap
 
-## Direction
+## Run It
 
-The long-term goal is to turn SentinelOps into a portable DevOps agent and CLI that can:
+1. Install dependencies with `npm install`
+2. Start the MVP with `npm run start`
+3. Run tests with `npm test`
 
-- watch deploy events and production signals
-- decide whether to hold or roll back with a confidence score
-- ask humans for approval when uncertainty is high
-- learn from overrides and improve future decisions
-- integrate cleanly with tools like GitHub, Jenkins, ArgoCD, Prometheus, Grafana, Loki, Slack, and Teams
+If `OPENAI_API_KEY` is not set, SentinelOps automatically falls back to canned decisions for a stable offline demo.
+
+## Portable CLI
+
+SentinelOps can be attached to other agent CLIs through shell commands.
+
+- `npm run cli -- simulate --scenario healthy --json`
+- `npm run cli -- judge --scenario degraded --json --canned`
+- `npm run cli -- decide --scenario degraded --override --json --canned`
+- `npm run cli -- demo --json --canned`
+
+Direct command shape for skill/tool wrappers:
+
+- `sentinelops judge --scenario degraded --json`
+
+Use JSON mode when another tool needs a stable machine-readable contract.
+
+## Repo Guide
+
+- [docs/superpowers/plans/2026-06-13-sentinelops-hackathon-mvp.md](/C:/Users/Anand/OneDrive%20-%20Xalta%20Technology%20Services%20Pvt%20Ltd/Desktop/SelfProjects/devops-cli/docs/superpowers/plans/2026-06-13-sentinelops-hackathon-mvp.md)
+- [docs/superpowers/plans/2026-06-13-sentinelops-full-product.md](/C:/Users/Anand/OneDrive%20-%20Xalta%20Technology%20Services%20Pvt%20Ltd/Desktop/SelfProjects/devops-cli/docs/superpowers/plans/2026-06-13-sentinelops-full-product.md)

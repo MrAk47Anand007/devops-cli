@@ -1,0 +1,13 @@
+[
+  {
+    "id": "INC-2026-05-02",
+    "deployId": "deploy-8841",
+    "summary": "checkout service error rate spiked to 4% after config change, latency doubled, transient issue recovered without rollback",
+    "errorRate": 0.04,
+    "latencyP95": 360,
+    "agentAction": "hold",
+    "agentConfidence": 60,
+    "humanOverride": "hold",
+    "outcome": "held and recovered on its own in 6 minutes; rollback would have been unnecessary"
+  }
+]
