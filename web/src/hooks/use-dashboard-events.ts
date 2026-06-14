@@ -33,11 +33,11 @@ export function useDashboardEvents(enabled = true): DashboardEventsState {
           lastEvent: event
         });
       },
-      () => {
+      (error) => {
         setState((current) => ({
           ...current,
           connected: false,
-          error: new Error("Dashboard event stream disconnected.")
+          error
         }));
       }
     );

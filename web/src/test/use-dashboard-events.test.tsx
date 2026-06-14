@@ -39,7 +39,12 @@ describe("useDashboardEvents", () => {
   it("registers listeners, handles lifecycle events, and closes on unmount", async () => {
     vi.stubGlobal("EventSource", MockEventSource as unknown as typeof EventSource);
 
-    const { result, unmount } = renderHook(() => useDashboardEvents());
+    const { result, rerender, unmount } = renderHook(
+      ({ enabled }) => useDashboardEvents(enabled),
+      {
+        initialProps: { enabled: true }
+      }
+    );
 
     expect(MockEventSource.instances).toHaveLength(1);
 
@@ -66,7 +71,45 @@ describe("useDashboardEvents", () => {
       expect(result.current.lastEvent).toEqual(payload);
     });
 
-    source.emit("error", new Event("error"));
+    source.emit("dashboard", new MessageEvent("dashboard", { data: "{bad json" }));
+
+    await waitFor(() => {
+      expect(result.current.connected).toBe(false);
+      expect(result.current.error).toEqual(new Error("Dashboard event stream payload was malformed."));
+      expect(result.current.lastEvent).toEqual(payload);
+    });
+
+    rerender({ enabled: false });
+
+    await waitFor(() => {
+      expect(result.current.connected).toBe(false);
+      expect(result.current.error).toBeNull();
+      expect(result.current.lastEvent).toBeNull();
+    });
+
+    expect(source.closed).toBe(true);
+
+    rerender({ enabled: true });
+
+    expect(MockEventSource.instances).toHaveLength(2);
+
+    const reconnectedSource = MockEventSource.instances[1];
+    expect(reconnectedSource).not.toBe(source);
+    expect(reconnectedSource.listeners.get("dashboard")?.size).toBe(1);
+    expect(reconnectedSource.listeners.get("error")?.size).toBe(1);
+
+    reconnectedSource.emit(
+      "dashboard",
+      new MessageEvent("dashboard", { data: JSON.stringify(payload) })
+    );
+
+    await waitFor(() => {
+      expect(result.current.connected).toBe(true);
+      expect(result.current.error).toBeNull();
+      expect(result.current.lastEvent).toEqual(payload);
+    });
+
+    reconnectedSource.emit("error", new Event("error"));
 
     await waitFor(() => {
       expect(result.current.connected).toBe(false);
@@ -76,6 +119,6 @@ describe("useDashboardEvents", () => {
 
     unmount();
 
-    expect(source.closed).toBe(true);
+    expect(reconnectedSource.closed).toBe(true);
   });
 });
