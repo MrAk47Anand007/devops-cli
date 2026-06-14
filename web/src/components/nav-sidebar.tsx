@@ -1,10 +1,11 @@
+import { NavLink } from "react-router-dom";
 import { cn } from "../lib/utils";
 
 const navItems = [
-  { label: "Overview", active: true },
-  { label: "Automation" },
-  { label: "Approvals" },
-  { label: "Integrations" }
+  { label: "Overview", status: "Live", to: "/" },
+  { label: "Automation", status: "Queue", to: "/automation" },
+  { label: "Approvals", status: "Queue", to: "/approvals" },
+  { label: "Integrations", status: "Queue", to: "/integrations" }
 ];
 
 export function NavSidebar(): JSX.Element {
@@ -29,18 +30,21 @@ export function NavSidebar(): JSX.Element {
         <ul className="grid gap-3">
           {navItems.map((item) => (
             <li key={item.label}>
-              <div
-                aria-current={item.active ? "page" : undefined}
-                className={cn(
-                  "flex items-center justify-between rounded-2xl border border-transparent px-4 py-3 text-sm text-slate-300",
-                  item.active && "border-cyan-400/30 bg-cyan-400/10 text-white"
-                )}
+              <NavLink
+                className={({ isActive }) =>
+                  cn(
+                    "flex items-center justify-between rounded-2xl border border-transparent px-4 py-3 text-sm text-slate-300 transition focus-visible:ring-offset-slate-950 hover:border-cyan-400/30 hover:bg-slate-800/80 hover:text-white",
+                    isActive && "border-cyan-400/30 bg-cyan-400/10 text-white"
+                  )
+                }
+                end={item.to === "/"}
+                to={item.to}
               >
                 <span>{item.label}</span>
                 <span className="text-xs uppercase tracking-[0.3em] text-slate-500">
-                  {item.active ? "Live" : "Queue"}
+                  {item.status}
                 </span>
-              </div>
+              </NavLink>
             </li>
           ))}
         </ul>

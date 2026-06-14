@@ -19,7 +19,10 @@ const statusCards = [
 export function StatusRail(): JSX.Element {
   return (
     <section
+      aria-atomic="false"
+      aria-live="polite"
       aria-label="Live status"
+      aria-relevant="text"
       className="grid gap-4 md:grid-cols-2 xl:grid-cols-3"
     >
       {statusCards.map((card) => (
