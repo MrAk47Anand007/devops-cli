@@ -48,7 +48,7 @@ export function useDashboardQuery<T>(
     return () => {
       cancelled = true;
     };
-  }, deps);
+  }, [queryFn, ...deps]);
 
   return state;
 }

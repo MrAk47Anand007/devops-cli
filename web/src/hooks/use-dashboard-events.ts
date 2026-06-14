@@ -36,6 +36,7 @@ export function useDashboardEvents(enabled = true): DashboardEventsState {
       () => {
         setState((current) => ({
           ...current,
+          connected: false,
           error: new Error("Dashboard event stream disconnected.")
         }));
       }

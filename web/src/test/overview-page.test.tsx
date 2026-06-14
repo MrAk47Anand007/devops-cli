@@ -37,4 +37,20 @@ describe("overview page", () => {
     expect(screen.getByText("production")).toBeInTheDocument();
     expect(screen.getByText("degraded")).toBeInTheDocument();
   });
+
+  it("shows a service loading failure from the dashboard API", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => ({
+        ok: false
+      }))
+    );
+
+    window.history.replaceState({}, "", "/");
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByRole("alert")).toHaveTextContent("Request failed for /api/services.");
+    });
+  });
 });
