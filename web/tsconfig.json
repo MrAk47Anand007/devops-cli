@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES2022",
     "useDefineForClassFields": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
@@ -12,6 +13,9 @@
     "jsx": "react-jsx",
     "strict": true,
     "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"]
   },
   "include": ["src", "vite.config.ts"]
