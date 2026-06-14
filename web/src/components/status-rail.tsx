@@ -17,26 +17,35 @@ const statusCards = [
 ];
 
 export function StatusRail(): JSX.Element {
+  const statusAnnouncement = statusCards
+    .map((card) => `${card.title} ${card.value}.`)
+    .join(" ");
+
   return (
-    <section
-      aria-atomic="false"
-      aria-live="polite"
-      aria-label="Live status"
-      aria-relevant="text"
-      className="grid gap-4 md:grid-cols-2 xl:grid-cols-3"
-    >
-      {statusCards.map((card) => (
-        <article
-          key={card.title}
-          className="rounded-3xl border border-slate-800/90 bg-slate-900/75 p-5 shadow-panel backdrop-blur"
-        >
-          <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">
-            {card.title}
-          </h2>
-          <p className="mt-4 text-3xl font-semibold text-white">{card.value}</p>
-          <p className="mt-3 text-sm leading-6 text-slate-300">{card.detail}</p>
-        </article>
-      ))}
-    </section>
+    <>
+      <p
+        aria-atomic="true"
+        aria-live="polite"
+        aria-label="Live status updates"
+        className="sr-only"
+        role="status"
+      >
+        {statusAnnouncement}
+      </p>
+      <section aria-label="Live status" className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {statusCards.map((card) => (
+          <article
+            key={card.title}
+            className="rounded-3xl border border-slate-800/90 bg-slate-900/75 p-5 shadow-panel backdrop-blur"
+          >
+            <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">
+              {card.title}
+            </h2>
+            <p className="mt-4 text-3xl font-semibold text-white">{card.value}</p>
+            <p className="mt-3 text-sm leading-6 text-slate-300">{card.detail}</p>
+          </article>
+        ))}
+      </section>
+    </>
   );
 }

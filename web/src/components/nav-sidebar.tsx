@@ -41,7 +41,10 @@ export function NavSidebar(): JSX.Element {
                 to={item.to}
               >
                 <span>{item.label}</span>
-                <span className="text-xs uppercase tracking-[0.3em] text-slate-500">
+                <span
+                  aria-hidden="true"
+                  className="text-xs uppercase tracking-[0.3em] text-slate-500"
+                >
                   {item.status}
                 </span>
               </NavLink>
