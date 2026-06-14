@@ -7,5 +7,7 @@ describe("app shell", () => {
     render(<App />);
     expect(screen.getByText("SentinelOps Control Center")).toBeInTheDocument();
     expect(screen.getByText("Overview")).toBeInTheDocument();
+    expect(screen.getByRole("navigation", { name: "Primary" })).toBeInTheDocument();
+    expect(screen.getByRole("list")).toBeInTheDocument();
   });
 });

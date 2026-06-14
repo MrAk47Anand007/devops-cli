@@ -1,14 +1,16 @@
 export default function App(): JSX.Element {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      <main className="mx-auto flex min-h-screen max-w-7xl flex-col px-6 py-8">
-        <p className="text-sm uppercase tracking-[0.3em] text-cyan-300">SentinelOps</p>
-        <h1 className="mt-3 text-4xl font-semibold">SentinelOps Control Center</h1>
-        <nav className="mt-8 flex gap-3 text-sm text-slate-300">
-          <span>Overview</span>
-          <span>Automation</span>
-          <span>Approvals</span>
-          <span>Integrations</span>
+    <div className="app-shell">
+      <main className="app-shell__main">
+        <p className="app-shell__eyebrow">SentinelOps</p>
+        <h1 className="app-shell__title">SentinelOps Control Center</h1>
+        <nav aria-label="Primary" className="app-shell__nav">
+          <ul className="app-shell__nav-list">
+            <li>Overview</li>
+            <li>Automation</li>
+            <li>Approvals</li>
+            <li>Integrations</li>
+          </ul>
         </nav>
       </main>
     </div>
