@@ -22,9 +22,16 @@ export interface RuntimeLiveService {
   deployState: string | null;
 }
 
+export interface IntegrationHealth {
+  id: string;
+  status: "ready" | "degraded" | "unavailable";
+  detail: string;
+  checkedAt: number;
+}
+
 export interface RuntimeLiveResponse {
-  config: Record<string, unknown>;
-  health: Record<string, unknown>;
+  config: Record<string, unknown> | null;
+  health: IntegrationHealth[];
   services: RuntimeLiveService[];
   updatedAt: string;
 }
