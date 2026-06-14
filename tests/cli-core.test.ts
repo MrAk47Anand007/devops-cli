@@ -91,4 +91,32 @@ describe("cli core context and planning", () => {
     expect(keyedParsed.ok).toBe(true);
     expect(keyedParsed.value).toBe("75");
   });
+
+  it("supports guided init inputs and operator on off controls", async () => {
+    const init = await runCli([
+      "init",
+      "--repo",
+      "example/repo",
+      "--repo",
+      "example/platform",
+      "--slack-channel",
+      "#ops-approvals",
+      "--agent-command",
+      "codex",
+      "--agent-args",
+      "[\"exec\",\"--json\"]",
+      "--enabled",
+      "true",
+      "--json"
+    ]);
+    const initPayload = JSON.parse(init.stdout);
+    expect(initPayload.ok).toBe(true);
+    expect(initPayload.config.trackedRepos).toContain("example/repo");
+    expect(initPayload.config.agentCommand).toBe("codex");
+
+    const toggle = await runCli(["automation", "disable", "--json"]);
+    const togglePayload = JSON.parse(toggle.stdout);
+    expect(togglePayload.ok).toBe(true);
+    expect(togglePayload.config.enabled).toBe(false);
+  });
 });

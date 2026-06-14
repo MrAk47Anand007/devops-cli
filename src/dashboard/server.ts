@@ -1,4 +1,8 @@
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
+import { executeApprovedAutomationJob, listAutomationJobsForCli } from "../core/automation.js";
+import { handleGithubWebhook, handleSlackWebhook } from "../core/automation-webhooks.js";
+import { createLiveOnboarding } from "../core/onboarding.js";
+import { loadOperatorConfig, saveOperatorConfig, setOperatorEnabled } from "../core/operator-config.js";
 import { DashboardStore } from "./store.js";
 import { renderDashboardHtml } from "./ui.js";
 import {
@@ -39,10 +43,21 @@ export async function startDashboardServer(options?: { port?: number }): Promise
       const url = new URL(request.url ?? "/", "http://127.0.0.1");
       const path = url.pathname;
 
-      if (method === "GET" && path === "/") {
+      if (method === "GET" && ["/", "/automation", "/integrations", "/settings"].includes(path)) {
         response.statusCode = 200;
         response.setHeader("content-type", "text/html; charset=utf-8");
-        response.end(renderDashboardHtml());
+        response.end(
+          renderDashboardHtml({
+            view:
+              path === "/automation"
+                ? "automation"
+                : path === "/integrations"
+                  ? "integrations"
+                  : path === "/settings"
+                    ? "settings"
+                    : "overview"
+          })
+        );
         return;
       }
 
@@ -56,6 +71,84 @@ export async function startDashboardServer(options?: { port?: number }): Promise
 
       if (method === "GET" && path === "/api/services") {
         sendJson(response, 200, { services: store.getServices() });
+        return;
+      }
+
+      if (method === "GET" && path === "/api/operator-config") {
+        sendJson(response, 200, { config: loadOperatorConfig() });
+        return;
+      }
+
+      if (method === "POST" && path === "/api/operator-config") {
+        const body = await readJsonBody(request);
+        const parsed = body as {
+          trackedRepos?: string[];
+          slackChannel?: string;
+          agentCommand?: string;
+          agentArgs?: string[];
+          enabled?: boolean;
+        };
+        sendJson(response, 200, {
+          config: saveOperatorConfig({
+            trackedRepos: parsed.trackedRepos ?? [],
+            slackChannel: parsed.slackChannel ?? "",
+            agentCommand: parsed.agentCommand ?? "codex",
+            agentArgs: parsed.agentArgs ?? ["exec", "--json"],
+            enabled: parsed.enabled ?? true
+          })
+        });
+        return;
+      }
+
+      if (method === "POST" && path === "/api/operator-config/toggle") {
+        const body = await readJsonBody(request);
+        const enabled = Boolean((body as { enabled?: unknown }).enabled);
+        sendJson(response, 200, { config: setOperatorEnabled(enabled) });
+        return;
+      }
+
+      if (method === "POST" && path === "/api/onboard/live") {
+        const body = await readJsonBody(request);
+        const parsed = body as {
+          repo?: string;
+          repoUrl?: string;
+          slackChannel?: string;
+          agentCommand?: string;
+          agentArgs?: string[];
+          enabled?: boolean;
+        };
+        sendJson(
+          response,
+          200,
+          createLiveOnboarding({
+            repo: parsed.repo ?? parsed.repoUrl ?? "",
+            slackChannel: parsed.slackChannel ?? "",
+            agentCommand: parsed.agentCommand,
+            agentArgs: parsed.agentArgs,
+            enabled: parsed.enabled
+          })
+        );
+        return;
+      }
+
+      if (method === "GET" && path === "/api/automation/jobs") {
+        sendJson(response, 200, { jobs: listAutomationJobsForCli() });
+        return;
+      }
+
+      if (method === "POST" && path.startsWith("/api/automation/jobs/") && path.endsWith("/run")) {
+        const jobId = decodeURIComponent(path.replace("/api/automation/jobs/", "").replace("/run", ""));
+        sendJson(response, 200, await executeApprovedAutomationJob(jobId));
+        return;
+      }
+
+      if (method === "POST" && path === "/webhooks/github") {
+        sendJson(response, 202, handleGithubWebhook(await readJsonBody(request)));
+        return;
+      }
+
+      if (method === "POST" && path === "/webhooks/slack") {
+        sendJson(response, 200, handleSlackWebhook(await readJsonBody(request)));
         return;
       }
 

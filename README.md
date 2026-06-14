@@ -15,7 +15,7 @@ In scope for this repo:
 Explicitly out of scope for this implementation:
 
 - real infra integrations
-- Slack as a required path
+- live Slack/GitHub credentials as a required path
 - Kubernetes, Prometheus, Grafana, Loki, RBAC, ACP, and multi-tenant features
 - the post-hackathon roadmap
 
@@ -26,6 +26,15 @@ Explicitly out of scope for this implementation:
 3. Run tests with `npm test`
 
 If `OPENAI_API_KEY` is not set, SentinelOps automatically falls back to canned decisions for a stable offline demo.
+
+To enable live OpenAI decisions locally, put your key in:
+
+- [C:\Users\Anand\OneDrive - Xalta Technology Services Pvt Ltd\Desktop\SelfProjects\devops-cli\.env](C:/Users/Anand/OneDrive%20-%20Xalta%20Technology%20Services%20Pvt%20Ltd/Desktop/SelfProjects/devops-cli/.env)
+
+Use:
+
+- `OPENAI_API_KEY=<your real key>`
+- `SENTINELOPS_USE_CANNED_DECISIONS=false`
 
 ## Portable CLI
 
@@ -60,10 +69,21 @@ The repo now ships a dedicated SentinelOps skill suite under `.agents/skills/`:
 The first real SentinelOps control layer now lives under a local `.sentinelops/` workspace state directory and supports:
 
 - `npm run cli -- init --json`
+- `npm run cli -- onboard --repo https://github.com/example/repo --slack-channel #ops-approvals --json`
+- `npm run cli -- init --repo example/repo --slack-channel #ops-approvals --agent-command codex --agent-args "[\"exec\",\"--json\"]" --enabled true --json`
 - `npm run cli -- status --json`
 - `npm run cli -- config get --json`
 - `npm run cli -- config set threshold.high 60 --json`
 - `npm run cli -- config get --key threshold.high --json`
+- `npm run cli -- config get --key operator --json`
+- `npm run cli -- automation enable --json`
+- `npm run cli -- automation disable --json`
+- `npm run cli -- automation seed-issue --target https://github.com/example/repo/issues/77 --service svc-api --json`
+- `npm run cli -- automation list --json`
+- `npm run cli -- automation show --job <job-id> --json`
+- `npm run cli -- automation approve --job <job-id> --by anand --json`
+- `npm run cli -- automation reject --job <job-id> --by anand --json`
+- `npm run cli -- automation run --job <job-id> --json`
 - `npm run cli -- integration list --json`
 - `npm run cli -- integration health --json`
 - `npm run cli -- integration simulate --provider slack --run <run-id> --json`
@@ -118,6 +138,37 @@ Plugin-ready payloads are included in:
 
 If live plugins are unavailable, use `integration simulate` as the local fallback harness for those payloads.
 
+## Autonomous Issue Flow
+
+SentinelOps now has a workspace operator config so Codex can initialize the automation session for the repos and Slack channel the user wants.
+
+Initialize a workspace session:
+
+- `npm run cli -- init --repo example/repo --slack-channel #ops-approvals --agent-command codex --agent-args "[\"exec\",\"--json\"]" --enabled true --json`
+
+Or use the Codex-driven live demo onboarding path:
+
+- `npm run cli -- onboard --repo https://github.com/example/repo --slack-channel #ops-approvals --json`
+
+This returns a `codexPrompt` and `pluginFlow`. Codex should use the GitHub and Slack plugins as the external hands while SentinelOps stores config, job state, approval state, transcripts, and result packages.
+
+Run the local demo path without live GitHub or Slack credentials:
+
+- `npm run cli -- automation seed-issue --target https://github.com/example/repo/issues/77 --service svc-api --json`
+- `npm run cli -- automation approve --job <job-id> --by anand --json`
+- `npm run cli -- automation run --job <job-id> --json`
+- `npm run cli -- github result-package --run <run-id> --json`
+
+The same server can receive real webhook-shaped input:
+
+- `POST /webhooks/github` for GitHub issue events
+- `POST /webhooks/slack` for Slack approval callbacks
+
+Autonomous operation remains in the user’s hands:
+
+- `npm run cli -- automation enable --json`
+- `npm run cli -- automation disable --json`
+
 ## Dummy Dashboard API
 
 The hackathon dashboard backend is now available as a local HTTP API backed by deterministic scenario fixtures plus mutable demo records.
@@ -133,6 +184,12 @@ The hackathon dashboard backend is now available as a local HTTP API backed by d
 - `GET|POST /api/deploys`
 - `GET|POST /api/incidents`
 - `PATCH /api/incidents/:id`
+- `GET|POST /api/operator-config`
+- `POST /api/operator-config/toggle`
+- `GET /api/automation/jobs`
+- `POST /api/automation/jobs/:jobId/run`
+- `POST /webhooks/github`
+- `POST /webhooks/slack`
 
 The default port is `4100`. Set `SENTINELOPS_DASHBOARD_PORT` to override it.
 
@@ -145,6 +202,9 @@ The browser dashboard now includes:
 - deploy and incident timeline
 - incident detail deep links at `/incidents/:id`
 - manual forms for logs, alerts, deploys, and incidents
+- operator config panel for tracked repos, Slack channel, agent command, and enabled state
+- automation queue showing GitHub issue jobs, approval state, and agent transcript summaries
+- Settings page live setup form for GitHub repo + Slack channel onboarding
 
 ## Hackathon Demo
 
@@ -152,9 +212,10 @@ Run the written hackathon flow end to end with:
 
 - `npm run demo:hackathon`
 
-This executes the same demo path from the final plan: load `post-deploy-errors`, ingest dashboard context, create a plan, prepare a change, run tests, package Slack approval, simulate Slack, record approval, pass the gate, prepare the GitHub result package, simulate GitHub handoff, record the final push, resolve the dashboard incident, and create the final report.
+This executes the same demo path from the final plan: initialize the operator config, seed a GitHub issue automation job, approve it, run the configured agent command, load `post-deploy-errors`, ingest dashboard context, create a plan, prepare a change, run tests, package Slack approval, simulate Slack, record approval, pass the gate, prepare the GitHub result package, simulate GitHub handoff, record the final push, resolve the dashboard incident, and create the final report.
 
 ## Repo Guide
 
 - [docs/superpowers/plans/2026-06-13-sentinelops-hackathon-mvp.md](/C:/Users/Anand/OneDrive%20-%20Xalta%20Technology%20Services%20Pvt%20Ltd/Desktop/SelfProjects/devops-cli/docs/superpowers/plans/2026-06-13-sentinelops-hackathon-mvp.md)
 - [docs/superpowers/plans/2026-06-13-sentinelops-post-hackathon-roadmap.md](/C:/Users/Anand/OneDrive%20-%20Xalta%20Technology%20Services%20Pvt%20Ltd/Desktop/SelfProjects/devops-cli/docs/superpowers/plans/2026-06-13-sentinelops-post-hackathon-roadmap.md)
+- [docs/superpowers/plans/2026-06-14-sentinelops-autonomous-operator.md](/C:/Users/Anand/OneDrive%20-%20Xalta%20Technology%20Services%20Pvt%20Ltd/Desktop/SelfProjects/devops-cli/docs/superpowers/plans/2026-06-14-sentinelops-autonomous-operator.md)

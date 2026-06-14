@@ -18,6 +18,18 @@ function requireRunId(value: unknown): string {
   throw new Error("Expected demo step to return a run id.");
 }
 
+function requireJobId(value: unknown): string {
+  if (
+    typeof value === "object" &&
+    value !== null &&
+    "job" in value &&
+    typeof (value as { job?: { id?: unknown } }).job?.id === "string"
+  ) {
+    return (value as { job: { id: string } }).job.id;
+  }
+  throw new Error("Expected demo step to return a job id.");
+}
+
 async function execute(step: string, argv: string[]): Promise<DemoStepResult> {
   const result = await runCli([...argv, "--json"]);
   const payload = JSON.parse(result.stdout) as unknown;
@@ -30,6 +42,41 @@ async function execute(step: string, argv: string[]): Promise<DemoStepResult> {
 
 async function main(): Promise<void> {
   const steps: DemoStepResult[] = [];
+
+  steps.push(await execute("operator-init", [
+    "init",
+    "--repo",
+    "example/repo",
+    "--slack-channel",
+    "#ops-approvals",
+    "--agent-command",
+    "node",
+    "--agent-args",
+    "[\"-e\",\"console.log('sentinelops autonomous agent completed')\"]",
+    "--enabled",
+    "true"
+  ]));
+
+  const automationIssueStep = await execute("automation-issue-open", [
+    "automation",
+    "seed-issue",
+    "--target",
+    "https://github.com/example/repo/issues/77",
+    "--service",
+    "svc-api"
+  ]);
+  steps.push(automationIssueStep);
+  const automationJobId = requireJobId(automationIssueStep.payload);
+
+  steps.push(await execute("automation-approve", [
+    "automation",
+    "approve",
+    "--job",
+    automationJobId,
+    "--by",
+    "demo-approver"
+  ]));
+  steps.push(await execute("automation-agent-run", ["automation", "run", "--job", automationJobId]));
 
   steps.push(await execute("load-scenario", ["scenario", "load", "post-deploy-errors"]));
   steps.push(await execute("dashboard-ingest", ["dashboard", "ingest", "--service", "svc-api"]));

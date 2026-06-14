@@ -137,4 +137,74 @@ describe("dashboard api", () => {
       await server.close();
     }
   });
+
+  it("serves operator config, automation jobs, and webhook intake", async () => {
+    const dashboardModule = await loadDashboardModule();
+    expect(dashboardModule?.startDashboardServer).toBeTypeOf("function");
+    if (!dashboardModule) {
+      return;
+    }
+
+    const server = await dashboardModule.startDashboardServer();
+    try {
+      const configResponse = await fetch(`${server.baseUrl}/api/operator-config`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          trackedRepos: ["example/repo"],
+          slackChannel: "#ops-approvals",
+          agentCommand: "node",
+          agentArgs: ["-e", "console.log('ok')"],
+          enabled: true
+        })
+      });
+      expect(configResponse.status).toBe(200);
+
+      const webhookResponse = await fetch(`${server.baseUrl}/webhooks/github`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          action: "opened",
+          repository: { full_name: "example/repo" },
+          issue: {
+            html_url: "https://github.com/example/repo/issues/77",
+            labels: [{ name: "service:svc-api" }]
+          }
+        })
+      });
+      expect(webhookResponse.status).toBe(202);
+
+      const jobsPayload = await (await fetch(`${server.baseUrl}/api/automation/jobs`)).json();
+      expect(jobsPayload.jobs).toHaveLength(1);
+      expect(jobsPayload.jobs[0].githubIssueUrl).toContain("/issues/77");
+
+      const togglePayload = await (
+        await fetch(`${server.baseUrl}/api/operator-config/toggle`, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ enabled: false })
+        })
+      ).json();
+      expect(togglePayload.config.enabled).toBe(false);
+
+      const onboardResponse = await fetch(`${server.baseUrl}/api/onboard/live`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          repoUrl: "https://github.com/example/platform/issues/5",
+          slackChannel: "#live-demo",
+          agentCommand: "codex",
+          agentArgs: ["exec", "--json"],
+          enabled: true
+        })
+      });
+      expect(onboardResponse.status).toBe(200);
+      const onboardPayload = await onboardResponse.json();
+      expect(onboardPayload.repo).toBe("example/platform");
+      expect(onboardPayload.config.slackChannel).toBe("#live-demo");
+      expect(onboardPayload.codexPrompt).toContain("GitHub plugin");
+    } finally {
+      await server.close();
+    }
+  });
 });

@@ -1,11 +1,17 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import {
+  AutomationEventSchema,
+  AutomationJobSchema,
   ContextSchema,
   DashboardScenarioSchema,
+  OperatorConfigSchema,
   RunRecordSchema,
+  type AutomationEvent,
+  type AutomationJob,
   type Context,
   type DashboardScenario,
+  type OperatorConfig,
   type RunRecord
 } from "../types.js";
 
@@ -18,6 +24,10 @@ export interface SentinelOpsPaths {
   config: string;
   memory: string;
   dashboardState: string;
+  operatorConfig: string;
+  automationJobs: string;
+  automationEvents: string;
+  transcripts: string;
 }
 
 function getWorkspaceRoot(): string {
@@ -33,6 +43,10 @@ export function ensureSentinelOpsState(): SentinelOpsPaths {
   const config = join(root, "config.json");
   const memory = join(root, "memory.json");
   const dashboardState = join(root, "dashboard-state.json");
+  const operatorConfig = join(root, "operator-config.json");
+  const automationJobs = join(root, "automation-jobs.json");
+  const automationEvents = join(root, "automation-events.json");
+  const transcripts = join(root, "transcripts");
 
   if (!existsSync(root)) {
     mkdirSync(root, { recursive: true });
@@ -40,8 +54,24 @@ export function ensureSentinelOpsState(): SentinelOpsPaths {
   if (!existsSync(runs)) {
     mkdirSync(runs, { recursive: true });
   }
+  if (!existsSync(transcripts)) {
+    mkdirSync(transcripts, { recursive: true });
+  }
 
-  return { root, runs, latestRun, currentScenario, latestContext, config, memory, dashboardState };
+  return {
+    root,
+    runs,
+    latestRun,
+    currentScenario,
+    latestContext,
+    config,
+    memory,
+    dashboardState,
+    operatorConfig,
+    automationJobs,
+    automationEvents,
+    transcripts
+  };
 }
 
 function getRunPath(runId: string): string {
@@ -153,4 +183,59 @@ export function writeMemoryEntries(entries: MemoryEntry[]): MemoryEntry[] {
   const { memory } = ensureSentinelOpsState();
   writeFileSync(memory, `${JSON.stringify(entries, null, 2)}\n`);
   return entries;
+}
+
+export function readOperatorConfig(): OperatorConfig | null {
+  const { operatorConfig } = ensureSentinelOpsState();
+  if (!existsSync(operatorConfig)) {
+    return null;
+  }
+  return OperatorConfigSchema.parse(JSON.parse(readFileSync(operatorConfig, "utf8")) as unknown);
+}
+
+export function writeOperatorConfig(config: OperatorConfig): OperatorConfig {
+  const parsed = OperatorConfigSchema.parse(config);
+  writeFileSync(ensureSentinelOpsState().operatorConfig, `${JSON.stringify(parsed, null, 2)}\n`);
+  return parsed;
+}
+
+export function listAutomationJobs(): AutomationJob[] {
+  const { automationJobs } = ensureSentinelOpsState();
+  if (!existsSync(automationJobs)) {
+    return [];
+  }
+  return AutomationJobSchema.array().parse(JSON.parse(readFileSync(automationJobs, "utf8")) as unknown);
+}
+
+export function getAutomationJob(jobId: string): AutomationJob | null {
+  return listAutomationJobs().find((job) => job.id === jobId) ?? null;
+}
+
+export function saveAutomationJob(job: AutomationJob): AutomationJob {
+  const parsed = AutomationJobSchema.parse(job);
+  const jobs = listAutomationJobs().filter((entry) => entry.id !== parsed.id);
+  jobs.push(parsed);
+  writeFileSync(ensureSentinelOpsState().automationJobs, `${JSON.stringify(jobs, null, 2)}\n`);
+  return parsed;
+}
+
+export function listAutomationEvents(): AutomationEvent[] {
+  const { automationEvents } = ensureSentinelOpsState();
+  if (!existsSync(automationEvents)) {
+    return [];
+  }
+  return AutomationEventSchema.array().parse(JSON.parse(readFileSync(automationEvents, "utf8")) as unknown);
+}
+
+export function appendAutomationEvent(event: AutomationEvent): AutomationEvent {
+  const parsed = AutomationEventSchema.parse(event);
+  const events = listAutomationEvents();
+  events.push(parsed);
+  writeFileSync(ensureSentinelOpsState().automationEvents, `${JSON.stringify(events, null, 2)}\n`);
+  return parsed;
+}
+
+export function getAutomationTranscriptPath(jobId: string): string {
+  const { transcripts } = ensureSentinelOpsState();
+  return join(transcripts, `${jobId}.log`);
 }

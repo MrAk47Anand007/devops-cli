@@ -1,14 +1,42 @@
 interface DashboardHtmlOptions {
   incidentId?: string;
+  view?: DashboardView;
 }
+
+type DashboardView = "overview" | "automation" | "integrations" | "settings";
 
 export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
   const initialIncidentId = JSON.stringify(options?.incidentId ?? null);
+  const view = options?.view ?? "overview";
+  const isActiveView = (target: DashboardView) => (view === target ? "active" : "");
+  const viewCopy: Record<DashboardView, { eyebrow: string; title: string; summary: string }> = {
+    overview: {
+      eyebrow: "Operational Surface",
+      title: "SentinelOps Command Overview",
+      summary: "Live service context, incidents, deploys, logs, and autonomous operations in one workspace view."
+    },
+    automation: {
+      eyebrow: "Autonomous Ops",
+      title: "Automation Control Room",
+      summary: "Watch GitHub issue intake, Slack approval state, and agent execution results update in realtime."
+    },
+    integrations: {
+      eyebrow: "Integration Hub",
+      title: "Connected Repos And Channels",
+      summary: "Confirm which GitHub repositories SentinelOps tracks and where Slack approvals are posted."
+    },
+    settings: {
+      eyebrow: "Operator Settings",
+      title: "Workspace Control Plane",
+      summary: "Switch automation on or off and verify the command SentinelOps will hand to Codex or another agent CLI."
+    }
+  };
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:," />
     <title>SentinelOps Control Center</title>
     <style>
       :root {
@@ -187,6 +215,31 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
         background: rgba(255, 255, 255, 0.55);
       }
 
+      .top-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .top-nav a {
+        color: var(--ink);
+        text-decoration: none;
+        border: 1px solid var(--line);
+        padding: 8px 10px;
+        border-radius: 12px;
+        font-family: var(--mono);
+        font-size: 12px;
+        text-transform: uppercase;
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      .top-nav a.active {
+        background: var(--ink);
+        color: #fff;
+        border-color: var(--ink);
+      }
+
       .stats {
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 16px;
@@ -218,11 +271,18 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
         grid-template-columns: minmax(0, 1fr);
       }
 
+      .ops-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: 20px;
+        margin-top: 22px;
+      }
+
       .section {
         padding: 22px;
         background: rgba(255, 250, 240, 0.74);
         border: 1px solid var(--line);
-        border-radius: 28px;
+        border-radius: 22px;
         box-shadow: var(--shadow);
       }
 
@@ -247,6 +307,45 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
       .service-card {
         display: grid;
         gap: 16px;
+      }
+
+      .operator-panel {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px 18px;
+      }
+
+      .operator-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 14px;
+        grid-column: 1 / -1;
+      }
+
+      .realtime-indicator {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .automation-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .automation-item {
+        border-top: 1px solid var(--line);
+        padding-top: 12px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .automation-item strong,
+      .automation-item code {
+        overflow-wrap: anywhere;
       }
 
       .service-head {
@@ -444,7 +543,56 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
         color: var(--muted);
       }
 
+      .mode-card {
+        display: grid;
+        gap: 12px;
+      }
+
+      .mode-card code {
+        overflow-wrap: anywhere;
+      }
+
+      .setup-status {
+        margin-top: 14px;
+        padding-top: 12px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .setup-status strong {
+        color: var(--ink);
+      }
+
+      body[data-view="automation"] #service-grid,
+      body[data-view="automation"] #manual-input-section,
+      body[data-view="automation"] #logs-section,
+      body[data-view="automation"] #alerts-section,
+      body[data-view="automation"] #integration-guide-section,
+      body[data-view="automation"] #settings-guide-section,
+      body[data-view="integrations"] #service-grid,
+      body[data-view="integrations"] #manual-input-section,
+      body[data-view="integrations"] #logs-section,
+      body[data-view="integrations"] #alerts-section,
+      body[data-view="integrations"] #automation-section,
+      body[data-view="integrations"] #timeline-section,
+      body[data-view="integrations"] #incident-detail-section,
+      body[data-view="integrations"] #settings-guide-section,
+      body[data-view="settings"] #service-grid,
+      body[data-view="settings"] #manual-input-section,
+      body[data-view="settings"] #logs-section,
+      body[data-view="settings"] #alerts-section,
+      body[data-view="settings"] #automation-section,
+      body[data-view="settings"] #timeline-section,
+      body[data-view="settings"] #incident-detail-section,
+      body[data-view="settings"] #integration-guide-section,
+      body[data-view="overview"] #integration-guide-section,
+      body[data-view="overview"] #settings-guide-section {
+        display: none;
+      }
+
       body[data-detail-mode="true"] .hero-copy p,
+      body[data-detail-mode="true"] #service-list-section,
       body[data-detail-mode="true"] #service-list,
       body[data-detail-mode="true"] #manual-input-section,
       body[data-detail-mode="true"] #logs-section,
@@ -479,6 +627,7 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
       @media (max-width: 980px) {
         .shell,
         .grid.top,
+        .ops-grid,
         .streams,
         .timeline-list,
         .stats,
@@ -505,7 +654,7 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
       }
     </style>
   </head>
-  <body data-detail-mode="${options?.incidentId ? "true" : "false"}">
+  <body data-detail-mode="${options?.incidentId ? "true" : "false"}" data-view="${view}">
     <div class="shell">
       <aside class="rail">
         <div class="brand fade-in">
@@ -522,12 +671,19 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
       </aside>
 
       <main class="main">
+        <nav class="top-nav">
+          <a class="${isActiveView("overview")}" href="/">Overview</a>
+          <a class="${isActiveView("automation")}" href="/automation">Automation</a>
+          <a class="${isActiveView("integrations")}" href="/integrations">Integrations</a>
+          <a class="${isActiveView("settings")}" href="/settings">Settings</a>
+        </nav>
+
         <section class="hero fade-in">
           <div class="hero-top">
             <div class="hero-copy">
-              <div class="eyebrow">Operational Surface</div>
-              <h2 id="hero-title">Loading scenario</h2>
-              <p id="hero-summary">Fetching service health, linked GitHub context, and live operational signals.</p>
+              <div class="eyebrow">${viewCopy[view].eyebrow}</div>
+              <h2 id="hero-title">${viewCopy[view].title}</h2>
+              <p id="hero-summary">${viewCopy[view].summary}</p>
             </div>
             <div class="pill" id="scenario-pill">SCENARIO</div>
           </div>
@@ -552,7 +708,31 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
           </div>
         </section>
 
-        <div class="grid top">
+        <div class="ops-grid">
+          <section id="operator-config-section" class="section fade-in">
+            <div class="section-header">
+              <div>
+                <div class="eyebrow">Operator Config</div>
+                <h3>Linked Repos And Channels</h3>
+              </div>
+              <p id="operator-updated" class="realtime-indicator">Waiting for config</p>
+            </div>
+            <div id="operator-config-panel" class="operator-panel"></div>
+          </section>
+
+          <section id="automation-section" class="section fade-in">
+            <div class="section-header">
+              <div>
+                <div class="eyebrow">Autonomous Ops</div>
+                <h3>Automation Queue</h3>
+              </div>
+              <p id="automation-updated" class="realtime-indicator">Waiting for jobs</p>
+            </div>
+            <div id="automation-list" class="automation-list"></div>
+          </section>
+        </div>
+
+        <div id="service-grid" class="grid top">
           <section class="section fade-in">
             <div class="section-header">
               <div>
@@ -564,7 +744,7 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
             <div id="service-card" class="service-card"></div>
           </section>
 
-          <section class="section fade-in">
+          <section id="service-list-section" class="section fade-in">
             <div class="section-header">
               <div>
                 <div class="eyebrow">Inventory</div>
@@ -659,6 +839,54 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
         </div>
 
         <div class="grid bottom">
+          <section id="integration-guide-section" class="section fade-in">
+            <div class="section-header">
+              <div>
+                <div class="eyebrow">Integration Checklist</div>
+                <h3>GitHub To Slack Wiring</h3>
+              </div>
+              <p>Use this page to confirm the tracked repo and approval channel before enabling automation.</p>
+            </div>
+            <div class="mode-card">
+              <div class="meta-row"><div class="meta-label">GitHub webhook</div><strong><code>POST /webhooks/github</code></strong></div>
+              <div class="meta-row"><div class="meta-label">Slack action webhook</div><strong><code>POST /webhooks/slack</code></strong></div>
+              <div class="meta-row"><div class="meta-label">Config command</div><strong><code>sentinelops init --repo owner/repo --slack-channel #ops-approvals</code></strong></div>
+            </div>
+          </section>
+
+          <section id="settings-guide-section" class="section fade-in">
+            <div class="section-header">
+              <div>
+                <div class="eyebrow">Live Demo Setup</div>
+                <h3>Give Codex The Repo And Slack Channel</h3>
+              </div>
+              <p>Paste the GitHub repo and Slack channel once. SentinelOps saves the operator config and Codex can drive the plugin-first flow.</p>
+            </div>
+            <form id="live-onboard-form" class="form-grid" data-span="full">
+              <label>GitHub Repo URL Or owner/repo
+                <input name="repo" placeholder="https://github.com/org/repo" />
+              </label>
+              <label>Slack Channel
+                <input name="slackChannel" placeholder="#ops-approvals" />
+              </label>
+              <label>Agent Command
+                <input name="agentCommand" value="codex" />
+              </label>
+              <label>Agent Args JSON
+                <input name="agentArgs" value='["exec","--json"]' />
+              </label>
+              <div class="form-actions">
+                <button type="submit">Start Live Mode</button>
+              </div>
+            </form>
+            <div id="live-onboard-status" class="setup-status">Waiting for repo and Slack channel.</div>
+            <div class="mode-card">
+              <div class="meta-row"><div class="meta-label">Enable</div><strong><code>sentinelops automation enable</code></strong></div>
+              <div class="meta-row"><div class="meta-label">Disable</div><strong><code>sentinelops automation disable</code></strong></div>
+              <div class="meta-row"><div class="meta-label">Review jobs</div><strong><code>sentinelops automation list</code></strong></div>
+            </div>
+          </section>
+
           <section id="logs-section" class="section fade-in">
             <div class="section-header">
               <div>
@@ -733,6 +961,8 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
     <script>
       const scenarios = ["healthy", "degraded-api", "failing-test", "post-deploy-errors", "config-risk"];
       const initialIncidentId = ${initialIncidentId};
+      const dashboardView = "${view}";
+      const isIncidentRoute = window.location.pathname.startsWith("/incidents/");
       const state = {
         scenario: "healthy",
         serviceId: null,
@@ -755,7 +985,13 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
         statDeploys: document.getElementById("stat-deploys"),
         statIncidents: document.getElementById("stat-incidents"),
         incidentState: document.getElementById("incident-state"),
-        incidentDetail: document.getElementById("incident-detail")
+        incidentDetail: document.getElementById("incident-detail"),
+        operatorUpdated: document.getElementById("operator-updated"),
+        operatorConfigPanel: document.getElementById("operator-config-panel"),
+        automationUpdated: document.getElementById("automation-updated"),
+        automationList: document.getElementById("automation-list"),
+        liveOnboardForm: document.getElementById("live-onboard-form"),
+        liveOnboardStatus: document.getElementById("live-onboard-status")
       };
 
       function nowIso() {
@@ -794,8 +1030,10 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
       function renderService(context) {
         const service = context.service;
         const github = service.linkedGithub || { issueUrl: null, prUrl: null };
-        els.heroTitle.textContent = service.name + " · " + service.environment;
-        els.heroSummary.textContent = context.summary;
+        if (dashboardView === "overview" || state.incidentId) {
+          els.heroTitle.textContent = service.name + " · " + service.environment;
+          els.heroSummary.textContent = context.summary;
+        }
         els.scenarioPill.textContent = context.scenario;
         els.contextUpdated.textContent = "Updated from scenario data";
         els.serviceCard.innerHTML = '' +
@@ -904,6 +1142,69 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
           '</div>';
       }
 
+      function renderOperatorConfig(config) {
+        els.operatorUpdated.textContent = "Live " + new Date().toLocaleTimeString();
+        if (!config) {
+          els.operatorConfigPanel.innerHTML = '' +
+            '<div class="meta-row"><div class="meta-label">Status</div><strong>not initialized</strong></div>' +
+            '<div class="subtle">Run sentinelops init with repo, Slack channel, and agent command settings.</div>';
+          return;
+        }
+
+        els.operatorConfigPanel.innerHTML = '' +
+          '<div class="meta-row"><div class="meta-label">Tracked GitHub Repos</div><strong>' + config.trackedRepos.join(", ") + '</strong></div>' +
+          '<div class="meta-row"><div class="meta-label">Slack Channel</div><strong>' + config.slackChannel + '</strong></div>' +
+          '<div class="meta-row"><div class="meta-label">Agent Command</div><strong>' + config.agentCommand + ' ' + config.agentArgs.join(" ") + '</strong></div>' +
+          '<div class="meta-row"><div class="meta-label">Automation</div><strong>' + (config.enabled ? "enabled" : "disabled") + '</strong></div>' +
+          '<div class="operator-actions">' +
+            '<button type="button" data-operator-toggle="true">Enable</button>' +
+            '<button type="button" data-operator-toggle="false">Disable</button>' +
+          '</div>';
+
+        els.operatorConfigPanel.querySelectorAll("[data-operator-toggle]").forEach((button) => {
+          button.addEventListener("click", async (event) => {
+            const enabled = event.currentTarget.getAttribute("data-operator-toggle") === "true";
+            await request("/api/operator-config/toggle", {
+              method: "POST",
+              body: JSON.stringify({ enabled })
+            });
+            await refreshOperatorConfig();
+          });
+        });
+      }
+
+      function renderAutomationJobs(jobs) {
+        els.automationUpdated.textContent = "Live " + new Date().toLocaleTimeString();
+        if (!jobs || jobs.length === 0) {
+          els.automationList.innerHTML = '<div class="incident-empty">No automation jobs have been recorded yet.</div>';
+          return;
+        }
+
+        els.automationList.innerHTML = jobs
+          .map((job) => {
+            const execution = job.execution
+              ? '<div class="subtle">Agent: ' + job.execution.summary + '</div><div class="subtle"><code>' + job.execution.transcriptPath + '</code></div>'
+              : '<div class="subtle">Agent has not run yet.</div>';
+            return '<article class="automation-item">' +
+              '<strong>' + job.status + ' / ' + job.serviceId + '</strong>' +
+              '<div><a href="' + job.githubIssueUrl + '">' + job.githubIssueUrl + '</a></div>' +
+              '<div class="subtle">Run ' + job.runId + '</div>' +
+              execution +
+            '</article>';
+          })
+          .join("");
+      }
+
+      async function refreshOperatorConfig() {
+        const payload = await request("/api/operator-config");
+        renderOperatorConfig(payload.config);
+      }
+
+      async function refreshAutomationJobs() {
+        const payload = await request("/api/automation/jobs");
+        renderAutomationJobs(payload.jobs);
+      }
+
       async function refreshIncidentDetail() {
         if (!state.incidentId) {
           renderIncidentDetail(null);
@@ -927,11 +1228,30 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
         const matchingIncident = contextPayload.context.incidents.find((incident) => incident.id === state.incidentId);
         if (!matchingIncident && contextPayload.context.incidents.length > 0) {
           state.incidentId = contextPayload.context.incidents[0].id;
-          if (window.location.pathname !== "/incidents/" + state.incidentId) {
+          if (isIncidentRoute && window.location.pathname !== "/incidents/" + state.incidentId) {
             window.history.replaceState({}, "", "/incidents/" + state.incidentId);
           }
         }
         await refreshIncidentDetail();
+        await refreshOperatorConfig();
+        await refreshAutomationJobs();
+      }
+
+      async function refreshRealtime() {
+        await Promise.allSettled([
+          refreshOperatorConfig(),
+          refreshAutomationJobs(),
+          refreshIncidentDetail()
+        ]);
+      }
+
+      function startRealtimeRefresh() {
+        window.setInterval(refreshRealtime, 3000);
+        document.addEventListener("visibilitychange", () => {
+          if (!document.hidden) {
+            refreshRealtime();
+          }
+        });
       }
 
       async function loadScenario(scenario) {
@@ -941,14 +1261,38 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
         });
         state.scenario = payload.scenario;
         state.serviceId = payload.service.id;
-        if (!state.incidentId) {
-          window.history.replaceState({}, "", "/");
-        }
         renderScenarioButtons();
         await refreshContext();
       }
 
       function bindForms() {
+        if (els.liveOnboardForm) {
+          els.liveOnboardForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const form = new FormData(event.currentTarget);
+            els.liveOnboardStatus.textContent = "Saving live demo setup...";
+            try {
+              const payload = await request("/api/onboard/live", {
+                method: "POST",
+                body: JSON.stringify({
+                  repo: form.get("repo"),
+                  slackChannel: form.get("slackChannel"),
+                  agentCommand: form.get("agentCommand") || "codex",
+                  agentArgs: JSON.parse(String(form.get("agentArgs") || '["exec","--json"]')),
+                  enabled: true
+                })
+              });
+              els.liveOnboardStatus.innerHTML = '' +
+                '<strong>Live mode ready.</strong> Tracking <code>' + payload.repo + '</code> and posting approvals to <code>' + payload.slackChannel + '</code>.' +
+                '<br /><span class="subtle">Codex prompt: ' + payload.codexPrompt + '</span>';
+              await refreshOperatorConfig();
+              await refreshAutomationJobs();
+            } catch (error) {
+              els.liveOnboardStatus.textContent = "Setup failed: " + (error instanceof Error ? error.message : String(error));
+            }
+          });
+        }
+
         document.getElementById("log-form").addEventListener("submit", async (event) => {
           event.preventDefault();
           const form = new FormData(event.currentTarget);
@@ -1020,7 +1364,7 @@ export function renderDashboardHtml(options?: DashboardHtmlOptions): string {
 
       renderScenarioButtons();
       bindForms();
-      loadScenario("post-deploy-errors");
+      loadScenario("post-deploy-errors").then(startRealtimeRefresh);
     </script>
   </body>
 </html>`;

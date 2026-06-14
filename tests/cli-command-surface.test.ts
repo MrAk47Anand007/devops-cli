@@ -18,6 +18,23 @@ describe("cli command surface coverage", () => {
   });
 
   it("covers the plan-named read and status commands directly", async () => {
+    const init = await runCli([
+      "init",
+      "--repo",
+      "example/repo",
+      "--slack-channel",
+      "#ops-approvals",
+      "--agent-command",
+      "codex",
+      "--agent-args",
+      "[\"exec\",\"--json\"]",
+      "--enabled",
+      "true",
+      "--json"
+    ]);
+    const initPayload = JSON.parse(init.stdout);
+    expect(initPayload.ok).toBe(true);
+
     const scenario = await runCli(["scenario", "load", "post-deploy-errors", "--json"]);
     const scenarioPayload = JSON.parse(scenario.stdout);
     expect(scenarioPayload.ok).toBe(true);
@@ -105,5 +122,10 @@ describe("cli command surface coverage", () => {
     expect(auditShowPayload.ok).toBe(true);
     expect(auditShowPayload.run.auditTrail.some((entry: { action: string }) => entry.action === "approval.record")).toBe(true);
     expect(auditShowPayload.run.auditTrail.some((entry: { detail: string }) => entry.detail.includes("changes_requested"))).toBe(true);
+
+    const operatorConfig = await runCli(["config", "get", "--key", "operator", "--json"]);
+    const operatorConfigPayload = JSON.parse(operatorConfig.stdout);
+    expect(operatorConfigPayload.ok).toBe(true);
+    expect(operatorConfigPayload.value.trackedRepos).toContain("example/repo");
   });
 });

@@ -27,7 +27,7 @@ export function createApprovalPackage(
   run: RunRecord;
   package: {
     summary: string;
-    risk: RunRecord["plan"]["risk"] | null;
+    risk: NonNullable<RunRecord["plan"]>["risk"] | null;
     plan?: RunRecord["plan"] | null;
     diff?: ReturnType<typeof getChangeDiff>["diff"];
     tests: RunRecord["tests"];

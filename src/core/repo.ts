@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { getLatestRunId, loadRun, readMemoryEntries, saveRun, writeLatestRunId, writeMemoryEntries, type MemoryEntry } from "./store.js";
+import { getLatestRunId, listAutomationJobs, loadRun, readMemoryEntries, saveRun, writeLatestRunId, writeMemoryEntries, type MemoryEntry } from "./store.js";
 import { evaluateRunPolicy } from "./policy.js";
 import { createTestReport } from "./testing.js";
 import { type RunRecord } from "../types.js";
@@ -174,6 +174,7 @@ export function createGithubResultPackage(runId: string): {
       blockedReasons: string[];
       requiresPlugin: true;
     };
+    executionSummary: string;
     pluginPayloads: {
       github: {
         commentBody: string;
@@ -185,6 +186,10 @@ export function createGithubResultPackage(runId: string): {
   const run = requireRun(runId);
   const latestApproval = run.approvals.at(-1) ?? null;
   const readiness = getGithubUpdateReadiness(run);
+  const automationJob = listAutomationJobs().find((job) => job.runId === runId);
+  const executionSummary = automationJob?.execution
+    ? `Agent execution: ${automationJob.execution.summary || `exit ${automationJob.execution.exitCode}`}`
+    : "Agent execution: not run";
   return {
     run,
     resultPackage: {
@@ -197,6 +202,7 @@ export function createGithubResultPackage(runId: string): {
         ...readiness,
         requiresPlugin: true
       },
+      executionSummary,
       pluginPayloads: {
         github: {
           commentBody: [
@@ -205,6 +211,7 @@ export function createGithubResultPackage(runId: string): {
             `Approval: ${latestApproval?.status ?? "missing"}`,
             `Tests recorded: ${run.tests.length}`,
             run.githubTarget ? `Target: ${run.githubTarget}` : "Target: none",
+            executionSummary,
             `Ready for protected GitHub update: ${readiness.ready ? "yes" : "no"}`
           ].join("\n"),
           status: readiness.ready ? (latestApproval?.status ?? "pending") : "blocked"

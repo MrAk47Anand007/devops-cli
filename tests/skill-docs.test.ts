@@ -53,6 +53,7 @@ describe("portable skill docs", () => {
 
     const coreSkill = readFileSync(".agents/skills/sentinelops-core/SKILL.md", "utf8");
     expect(coreSkill).toContain("Collect tests and approval evidence before protected mutations.");
+    expect(coreSkill).toContain("automation seed-issue --target");
   });
 
   it("documents the intended SentinelOps workflow ordering in skills", () => {

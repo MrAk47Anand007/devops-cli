@@ -1,7 +1,8 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { getScenario, setScenario, type Scenario } from "./simulator.js";
+import { getScenario, setScenario } from "./simulator.js";
+import { type Scenario } from "./types.js";
 
 export interface AuditEntry {
   timestamp: number;

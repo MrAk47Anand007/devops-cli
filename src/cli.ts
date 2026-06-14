@@ -4,6 +4,14 @@ import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { judge } from "./agent.js";
 import {
+  buildSlackApprovalRequest,
+  executeApprovedAutomationJob,
+  listAutomationJobsForCli,
+  recordAutomationApproval,
+  requireAutomationJob
+} from "./core/automation.js";
+import { handleGithubIssueOpened } from "./core/automation-webhooks.js";
+import {
   createApprovalPackage,
   getApprovalStatus,
   pushGate,
@@ -14,6 +22,8 @@ import {
 import { createContextForService, validateContextFile } from "./core/context.js";
 import { resolveDashboardIncident } from "./core/dashboard.js";
 import { simulateIntegration } from "./core/integration.js";
+import { createLiveOnboarding } from "./core/onboarding.js";
+import { loadOperatorConfig, saveOperatorConfig, setOperatorEnabled } from "./core/operator-config.js";
 import {
   askLatestCriticalQuestions,
   createPlanFromContextFile,
@@ -75,6 +85,16 @@ function getFlagValue(args: string[], flag: string): string | undefined {
   return args[index + 1];
 }
 
+function getMultiFlagValues(args: string[], flag: string): string[] {
+  const values: string[] = [];
+  args.forEach((value, index) => {
+    if (value === flag && index < args.length - 1) {
+      values.push(args[index + 1]);
+    }
+  });
+  return values;
+}
+
 function parseHumanDecision(args: string[]): HumanDecision | null {
   if (args.includes("--override")) {
     return "override";
@@ -108,6 +128,15 @@ function formatText(command: string, scenario: Scenario, detail: string): string
   return `${command} ${scenario}: ${detail}\n`;
 }
 
+function repoFromGithubUrl(target: string): string {
+  const url = new URL(target);
+  const parts = url.pathname.split("/").filter(Boolean);
+  if (parts.length < 2) {
+    throw new Error(`Cannot infer repository from ${target}.`);
+  }
+  return `${parts[0]}/${parts[1]}`;
+}
+
 export async function runCli(argv: string[]): Promise<CliRunResult> {
   const [command = "unknown", ...args] = argv;
   const json = args.includes("--json");
@@ -137,10 +166,12 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
     command !== "repo" &&
     command !== "change" &&
     command !== "github" &&
+    command !== "onboard" &&
     command !== "init" &&
     command !== "status" &&
     command !== "config" &&
     command !== "integration" &&
+    command !== "automation" &&
     !isScenario(scenarioValue)
   ) {
     return errorResult(
@@ -182,14 +213,65 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
 
   if (command === "init") {
     const paths = ensureSentinelOpsState();
+    const repos = getMultiFlagValues(args, "--repo");
+    const slackChannel = getFlagValue(args, "--slack-channel");
+    const agentCommand = getFlagValue(args, "--agent-command") ?? "codex";
+    const agentArgsRaw = getFlagValue(args, "--agent-args") ?? "[\"exec\",\"--json\"]";
+    const enabledFlag = getFlagValue(args, "--enabled");
+    const enabled = enabledFlag ? enabledFlag === "true" : true;
+    const config =
+      repos.length > 0 && slackChannel
+        ? saveOperatorConfig({
+            trackedRepos: repos,
+            slackChannel,
+            agentCommand,
+            agentArgs: JSON.parse(agentArgsRaw) as string[],
+            enabled
+          })
+        : loadOperatorConfig();
     return {
       exitCode: 0,
       stdout: formatJson({
         ok: true,
         command: "init",
-        paths
+        paths,
+        config,
+        nextPrompt:
+          config === null
+            ? "Provide --repo, --slack-channel, --agent-command, and --enabled to complete SentinelOps onboarding."
+            : null
       })
     };
+  }
+
+  if (command === "onboard") {
+    const repo = getFlagValue(args, "--repo") ?? getFlagValue(args, "--repo-url");
+    const slackChannel = getFlagValue(args, "--slack-channel");
+    const agentCommand = getFlagValue(args, "--agent-command") ?? "codex";
+    const agentArgsRaw = getFlagValue(args, "--agent-args") ?? "[\"exec\",\"--json\"]";
+    const enabledFlag = getFlagValue(args, "--enabled");
+    if (!repo || !slackChannel) {
+      return errorResult("onboard", "MISSING_ONBOARD_FIELDS", "Provide --repo or --repo-url and --slack-channel.");
+    }
+    try {
+      const result = createLiveOnboarding({
+        repo,
+        slackChannel,
+        agentCommand,
+        agentArgs: JSON.parse(agentArgsRaw) as string[],
+        enabled: enabledFlag ? enabledFlag === "true" : true
+      });
+      return {
+        exitCode: 0,
+        stdout: formatJson({
+          ok: true,
+          command: "onboard",
+          ...result
+        })
+      };
+    } catch (error) {
+      return errorResult("onboard", "ONBOARD_FAILED", error instanceof Error ? error.message : String(error));
+    }
   }
 
   if (command === "status") {
@@ -232,6 +314,17 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
   if (command === "config" && subcommand === "get") {
     const key = getFlagValue(args, "--key");
     const config = readConfig();
+    if (key === "operator") {
+      return {
+        exitCode: 0,
+        stdout: formatJson({
+          ok: true,
+          command: "config.get",
+          key,
+          value: loadOperatorConfig()
+        })
+      };
+    }
     if (!key) {
       return {
         exitCode: 0,
@@ -306,6 +399,145 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
       };
     } catch (error) {
       return errorResult("integration", "INTEGRATION_SIMULATE_FAILED", error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  if (command === "automation" && subcommand === "enable") {
+    try {
+      return {
+        exitCode: 0,
+        stdout: formatJson({
+          ok: true,
+          command: "automation.enable",
+          config: setOperatorEnabled(true)
+        })
+      };
+    } catch (error) {
+      return errorResult("automation", "AUTOMATION_ENABLE_FAILED", error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  if (command === "automation" && subcommand === "disable") {
+    try {
+      return {
+        exitCode: 0,
+        stdout: formatJson({
+          ok: true,
+          command: "automation.disable",
+          config: setOperatorEnabled(false)
+        })
+      };
+    } catch (error) {
+      return errorResult("automation", "AUTOMATION_DISABLE_FAILED", error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  if (command === "automation" && subcommand === "list") {
+    return {
+      exitCode: 0,
+      stdout: formatJson({
+        ok: true,
+        command: "automation.list",
+        jobs: listAutomationJobsForCli()
+      })
+    };
+  }
+
+  if (command === "automation" && subcommand === "show") {
+    const jobId = getFlagValue(args, "--job");
+    if (!jobId) {
+      return errorResult("automation", "MISSING_JOB", "Provide --job <job-id>.");
+    }
+    try {
+      return {
+        exitCode: 0,
+        stdout: formatJson({
+          ok: true,
+          command: "automation.show",
+          job: requireAutomationJob(jobId)
+        })
+      };
+    } catch (error) {
+      return errorResult("automation", "AUTOMATION_SHOW_FAILED", error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  if (command === "automation" && subcommand === "seed-issue") {
+    const target = getFlagValue(args, "--target");
+    const service = getFlagValue(args, "--service");
+    if (!target || !service) {
+      return errorResult("automation", "MISSING_SEED_FIELDS", "Provide --target and --service.");
+    }
+    try {
+      const result = handleGithubIssueOpened({
+        action: "opened",
+        issue: {
+          html_url: target,
+          labels: [{ name: `service:${service}` }]
+        },
+        repository: {
+          full_name: repoFromGithubUrl(target)
+        }
+      });
+      return {
+        exitCode: 0,
+        stdout: formatJson({
+          ok: true,
+          command: "automation.seed-issue",
+          ...result,
+          slackApproval: buildSlackApprovalRequest(result.run.id, result.job.id)
+        })
+      };
+    } catch (error) {
+      return errorResult("automation", "AUTOMATION_SEED_ISSUE_FAILED", error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  if (command === "automation" && (subcommand === "approve" || subcommand === "reject")) {
+    const jobId = getFlagValue(args, "--job");
+    const by = getFlagValue(args, "--by") ?? "operator";
+    if (!jobId) {
+      return errorResult("automation", "MISSING_JOB", "Provide --job <job-id>.");
+    }
+    try {
+      const job = requireAutomationJob(jobId);
+      const result = recordAutomationApproval({
+        runId: job.runId,
+        jobId,
+        source: "slack",
+        status: subcommand === "approve" ? "approved" : "rejected",
+        by
+      });
+      return {
+        exitCode: 0,
+        stdout: formatJson({
+          ok: true,
+          command: `automation.${subcommand}`,
+          ...result
+        })
+      };
+    } catch (error) {
+      return errorResult("automation", "AUTOMATION_APPROVAL_FAILED", error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  if (command === "automation" && subcommand === "run") {
+    const jobId = getFlagValue(args, "--job");
+    if (!jobId) {
+      return errorResult("automation", "MISSING_JOB", "Provide --job <job-id>.");
+    }
+    try {
+      const result = await executeApprovedAutomationJob(jobId);
+      return {
+        exitCode: result.execution?.exitCode === 0 ? 0 : 1,
+        stdout: formatJson({
+          ok: result.execution?.exitCode === 0,
+          command: "automation.run",
+          ...result
+        })
+      };
+    } catch (error) {
+      return errorResult("automation", "AUTOMATION_RUN_FAILED", error instanceof Error ? error.message : String(error));
     }
   }
 
@@ -1003,7 +1235,7 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
     }
   }
 
-  if (command === "simulate" && scenarioValue) {
+  if (command === "simulate" && isScenario(scenarioValue)) {
     const result = simulateScenario(scenarioValue);
     return {
       exitCode: 0,
@@ -1022,7 +1254,7 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
     };
   }
 
-  if (command === "judge" && scenarioValue) {
+  if (command === "judge" && isScenario(scenarioValue)) {
     const simulated = simulateScenario(scenarioValue);
     const decision = await judge(simulated.metrics, { useCanned: canned });
     return {
@@ -1039,7 +1271,7 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
     };
   }
 
-  if (command === "decide" && scenarioValue) {
+  if (command === "decide" && isScenario(scenarioValue)) {
     const result = await executeDecisionFlow({
       scenario: scenarioValue,
       deployId: `deploy-${scenarioValue}`,

@@ -31,6 +31,13 @@ describe("dashboard ui", () => {
       expect(html).toContain("Alert Table");
       expect(html).toContain("GitHub Issue URL");
       expect(html).toContain("GitHub PR URL");
+      expect(html).toContain("Linked Repos And Channels");
+      expect(html).toContain("Automation Queue");
+      expect(html).toContain("operator-updated");
+      expect(html).toContain("automation-updated");
+      expect(html).toContain("startRealtimeRefresh");
+      expect(html).toContain("/api/operator-config");
+      expect(html).toContain("/api/automation/jobs");
       expect(html).toContain("/api/scenarios/load");
     } finally {
       await server.close();
@@ -55,7 +62,37 @@ describe("dashboard ui", () => {
       expect(response.status).toBe(200);
       expect(html).toContain("Incident Detail");
       expect(html).toContain(incidentId);
+      expect(html).toContain('id="service-list-section"');
+      expect(html).toContain('body[data-detail-mode="true"] #service-list-section');
       expect(html).toContain("/api/incidents/");
+      expect(html).toContain("Automation Queue");
+    } finally {
+      await server.close();
+    }
+  });
+
+  it("renders distinct top-navigation pages", async () => {
+    const server = await startDashboardServer();
+    try {
+      const automationHtml = await (await fetch(`${server.baseUrl}/automation`)).text();
+      const integrationsHtml = await (await fetch(`${server.baseUrl}/integrations`)).text();
+      const settingsHtml = await (await fetch(`${server.baseUrl}/settings`)).text();
+
+      expect(automationHtml).toContain('data-view="automation"');
+      expect(automationHtml).toContain("Automation Control Room");
+      expect(automationHtml).toContain('class="active" href="/automation"');
+
+      expect(integrationsHtml).toContain('data-view="integrations"');
+      expect(integrationsHtml).toContain("Connected Repos And Channels");
+      expect(integrationsHtml).toContain("GitHub To Slack Wiring");
+      expect(integrationsHtml).toContain('class="active" href="/integrations"');
+
+      expect(settingsHtml).toContain('data-view="settings"');
+      expect(settingsHtml).toContain("Workspace Control Plane");
+      expect(settingsHtml).toContain("Give Codex The Repo And Slack Channel");
+      expect(settingsHtml).toContain("Start Live Mode");
+      expect(settingsHtml).toContain("/api/onboard/live");
+      expect(settingsHtml).toContain('class="active" href="/settings"');
     } finally {
       await server.close();
     }

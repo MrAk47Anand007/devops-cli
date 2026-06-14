@@ -44,6 +44,9 @@ describe("hackathon demo harness", () => {
     };
     expect(payload.ok).toBe(true);
     expect(payload.runId).toMatch(/^run-/);
+    expect(payload.steps.some((step) => step.step === "operator-init" && step.ok)).toBe(true);
+    expect(payload.steps.some((step) => step.step === "automation-issue-open" && step.ok)).toBe(true);
+    expect(payload.steps.some((step) => step.step === "automation-agent-run" && step.ok)).toBe(true);
     expect(payload.steps.some((step) => step.step === "github-simulate" && step.ok)).toBe(true);
     expect(payload.steps.some((step) => step.step === "incident-resolve" && step.ok)).toBe(true);
   });
