@@ -31,6 +31,7 @@ describe("live onboarding", () => {
 
     expect(result.config.trackedRepos).toEqual(["example/repo"]);
     expect(result.config.slackChannel).toBe("#ops-approvals");
+    expect(result.config.judgmentProvider).toBe("canned");
     expect(result.codexPrompt).toContain("GitHub plugin");
     expect(result.pluginFlow.some((step) => step.includes("Slack plugin"))).toBe(true);
   });

@@ -1,6 +1,8 @@
 import { runAgentCommand } from "./agent-runner.js";
+import { getConfiguredChatChannel } from "./chat-channels.js";
 import { createApprovalPackage, recordApproval } from "./approval.js";
 import { requireOperatorConfig } from "./operator-config.js";
+import { loadRun } from "./store.js";
 import {
   appendAutomationEvent,
   getAutomationJob,
@@ -17,24 +19,34 @@ export function requireAutomationJob(jobId: string): AutomationJob {
   return job;
 }
 
-export function createAutomationJob(input: {
+export async function createAutomationJob(input: {
   runId: string;
   serviceId: string;
   githubIssueUrl: string;
-}): { job: AutomationJob } {
+}): Promise<{ job: AutomationJob }> {
   const config = requireOperatorConfig();
   const now = new Date().toISOString();
-  const job = saveAutomationJob({
+  const initialJob = saveAutomationJob({
     id: `job-${Date.now()}`,
     runId: input.runId,
     source: "github_issue",
     serviceId: input.serviceId,
     githubIssueUrl: input.githubIssueUrl,
     status: "awaiting_approval",
-    approvalMessageId: config.slackChannel,
+    approvalMessageId: null,
     execution: null,
     createdAt: now,
     updatedAt: now
+  });
+  const thread = await getConfiguredChatChannel().postApproval({
+    incidentId: input.runId,
+    summary: `Approval needed for ${input.serviceId}.`,
+    evidence: [input.githubIssueUrl, `service:${input.serviceId}`, `channel:${config.slackChannel}`]
+  });
+  const job = saveAutomationJob({
+    ...initialJob,
+    approvalMessageId: thread.id,
+    updatedAt: new Date().toISOString()
   });
   appendAutomationEvent({
     id: `evt-${Date.now()}`,
@@ -114,11 +126,33 @@ export function recordAutomationApproval(input: {
   return { job };
 }
 
-function resolveAgentCommand(): { command: string; args: string[] } {
+function buildAutomationPrompt(job: AutomationJob): string {
+  const run = loadRun(job.runId);
+  const summary = run?.plan?.summary ?? `Investigate ${job.githubIssueUrl} and prepare a safe remediation path.`;
+  const steps = run?.plan?.steps ?? [];
+  return [
+    "You are the SentinelOps autonomous operator.",
+    `Run ID: ${job.runId}`,
+    `Job ID: ${job.id}`,
+    `Service: ${job.serviceId}`,
+    `GitHub target: ${job.githubIssueUrl}`,
+    `Plan summary: ${summary}`,
+    steps.length > 0 ? `Plan steps: ${steps.join(" | ")}` : null,
+    "Inspect the linked GitHub issue and the relevant repository context.",
+    "Work non-interactively and finish with a concise final summary.",
+    "If you cannot safely proceed, explain the blocker and exit."
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
+function resolveAgentCommand(job: AutomationJob): { command: string; args: string[]; stdinText?: string } {
   const config = requireOperatorConfig();
+  const usesCodexExec = config.agentCommand === "codex" && config.agentArgs.includes("exec");
   return {
     command: config.agentCommand,
-    args: config.agentArgs
+    args: config.agentArgs,
+    stdinText: usesCodexExec ? buildAutomationPrompt(job) : undefined
   };
 }
 
@@ -132,12 +166,13 @@ export async function executeApprovedAutomationJob(jobId: string): Promise<{
   }
 
   const running = updateAutomationJobStatus(jobId, "running_agent");
-  const resolved = resolveAgentCommand();
+  const resolved = resolveAgentCommand(running);
   const execution = await runAgentCommand({
     command: resolved.command,
     args: resolved.args,
     runId: running.runId,
-    jobId: running.id
+    jobId: running.id,
+    stdinText: resolved.stdinText
   });
   const nextStatus: AutomationJobStatus = execution.exitCode === 0 ? "completed" : "failed";
   const updatedJob = saveAutomationJob({
@@ -156,6 +191,12 @@ export async function executeApprovedAutomationJob(jobId: string): Promise<{
     },
     at: new Date().toISOString()
   });
+  if (updatedJob.approvalMessageId) {
+    await getConfiguredChatChannel().notify(
+      { id: updatedJob.approvalMessageId },
+      `Automation job ${updatedJob.id} finished with status ${updatedJob.status}.`
+    );
+  }
 
   return {
     job: updatedJob,

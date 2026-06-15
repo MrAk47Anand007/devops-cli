@@ -6,6 +6,9 @@ export interface LiveOnboardingInput {
   slackChannel: string;
   agentCommand?: string;
   agentArgs?: string[];
+  judgmentProvider?: "canned" | "openai" | "anthropic" | "ai-cli";
+  deployTarget?: "simulator" | "kubernetes" | "docker";
+  metricSource?: "simulator" | "prometheus" | "grafana";
   enabled?: boolean;
 }
 
@@ -55,8 +58,11 @@ export function createLiveOnboarding(input: LiveOnboardingInput): LiveOnboarding
     slackChannel,
     agentCommand: input.agentCommand ?? "codex",
     agentArgs: input.agentArgs ?? ["exec", "--json"],
+    judgmentProvider: input.judgmentProvider ?? "canned",
+    deployTarget: input.deployTarget ?? "simulator",
+    metricSource: input.metricSource ?? "simulator",
     enabled: input.enabled ?? true
-  });
+  }, { actor: "onboarding" });
 
   return {
     config,

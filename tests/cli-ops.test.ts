@@ -45,11 +45,20 @@ describe("cli foundational ops", () => {
     const integrationsPayload = JSON.parse(integrations.stdout);
     expect(integrationsPayload.ok).toBe(true);
     expect(integrationsPayload.integrations.some((entry: { id: string }) => entry.id === "github")).toBe(true);
+    expect(
+      integrationsPayload.integrations.some((entry: { id: string }) => entry.id === "judgment")
+    ).toBe(true);
+    expect(
+      integrationsPayload.integrations.some((entry: { id: string }) => entry.id === "deploy")
+    ).toBe(true);
 
     const health = await runCli(["integration", "health", "--json"]);
     const healthPayload = JSON.parse(health.stdout);
     expect(healthPayload.ok).toBe(true);
     expect(healthPayload.health.some((entry: { id: string; status: string }) => entry.id === "dashboard" && entry.status === "ready")).toBe(true);
+    expect(healthPayload.health.some((entry: { id: string }) => entry.id === "simulator-metrics")).toBe(true);
+    expect(healthPayload.health.some((entry: { id: string }) => entry.id === "judgment-canned")).toBe(true);
+    expect(healthPayload.health.some((entry: { id: string }) => entry.id === "deploy-simulator")).toBe(true);
   });
 
   it("ingests dashboard context through the dedicated command", async () => {

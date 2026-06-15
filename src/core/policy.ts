@@ -1,4 +1,5 @@
-import { getLatestRunId, loadRun, readConfig, writeConfig } from "./store.js";
+import { getLatestRunId, loadRun, readConfig } from "./store.js";
+import { getGuardrailPolicyConfig, updateGuardrailPolicyConfig } from "./guardrail-config.js";
 import { type PolicyViolation, type RunRecord } from "../types.js";
 
 const POLICY_DEFINITIONS = [
@@ -114,7 +115,11 @@ export function listPolicies(): Array<{ id: string; description: string }> {
   return [...POLICY_DEFINITIONS];
 }
 
-export function setPolicyThreshold(key: string, value: string): { key: string; value: string } {
+export function setPolicyThreshold(
+  key: string,
+  value: string,
+  options?: { actor?: string; approved?: boolean }
+): { key: string; value: string } {
   if (!["threshold.medium", "threshold.high", "threshold.critical"].includes(key)) {
     throw new Error(`Unsupported policy key ${key}.`);
   }
@@ -122,10 +127,24 @@ export function setPolicyThreshold(key: string, value: string): { key: string; v
   if (!Number.isFinite(numeric)) {
     throw new Error("Policy threshold value must be numeric.");
   }
-  const config = readConfig();
-  config[key] = value;
-  writeConfig(config);
+  const thresholdName = key.replace("threshold.", "") as "medium" | "high" | "critical";
+  updateGuardrailPolicyConfig(
+    {
+      thresholds: {
+        [thresholdName]: numeric
+      }
+    },
+    options
+  );
   return { key, value };
+}
+
+export function getPolicyThresholds(): {
+  medium: number;
+  high: number;
+  critical: number;
+} {
+  return getGuardrailPolicyConfig().thresholds;
 }
 
 export function checkLatestPolicy(): {

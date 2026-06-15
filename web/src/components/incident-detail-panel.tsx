@@ -40,6 +40,7 @@ export function IncidentDetailPanel({
             <a
               className="inline-flex text-sm text-cyan-300 hover:text-cyan-200"
               href={incident.linkedGithub.issueUrl}
+              aria-label={`Open linked GitHub issue for ${incident.serviceId} in a new tab`}
               rel="noreferrer"
               target="_blank"
             >

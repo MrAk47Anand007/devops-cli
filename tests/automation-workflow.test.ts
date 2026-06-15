@@ -27,7 +27,7 @@ describe("automation workflow", () => {
       "--agent-command",
       "node",
       "--agent-args",
-      "[\"-e\",\"console.log('sentinelops autonomous agent completed')\"]",
+      "[\"-e\",\"console.log('The requested feature is already implemented and can be validated before closing the issue.')\"]",
       "--enabled",
       "true",
       "--json"
@@ -63,11 +63,15 @@ describe("automation workflow", () => {
     const runPayload = JSON.parse(run.stdout);
     expect(runPayload.ok).toBe(true);
     expect(runPayload.job.status).toBe("completed");
-    expect(runPayload.execution.summary).toContain("sentinelops autonomous agent completed");
+    expect(runPayload.execution.summary).toContain("already implemented");
 
     const result = await runCli(["github", "result-package", "--run", issuePayload.run.id, "--json"]);
     const resultPayload = JSON.parse(result.stdout);
     expect(resultPayload.ok).toBe(true);
-    expect(resultPayload.resultPackage.executionSummary).toContain("sentinelops autonomous agent completed");
+    expect(resultPayload.resultPackage.executionSummary).toContain("already implemented");
+    expect(resultPayload.resultPackage.automationOutcome.classification).toBe("already_done");
+    expect(resultPayload.resultPackage.pluginPayloads.github.closeIssue).toBe(true);
+    expect(resultPayload.resultPackage.pluginPayloads.github.issueState).toBe("closed");
+    expect(resultPayload.resultPackage.pluginPayloads.slack.text).toContain("close the issue");
   });
 });

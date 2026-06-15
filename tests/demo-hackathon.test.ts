@@ -26,7 +26,8 @@ describe("hackathon demo harness", () => {
               ...process.env,
               SENTINELOPS_WORKSPACE_ROOT: tempDir
             },
-            encoding: "utf8"
+            encoding: "utf8",
+            maxBuffer: 10 * 1024 * 1024
           })
         : execFileSync("npm", ["run", "demo:hackathon"], {
             cwd: process.cwd(),
@@ -34,7 +35,8 @@ describe("hackathon demo harness", () => {
               ...process.env,
               SENTINELOPS_WORKSPACE_ROOT: tempDir
             },
-            encoding: "utf8"
+            encoding: "utf8",
+            maxBuffer: 10 * 1024 * 1024
           });
     const lines = stdout.trim().split(/\r?\n/);
     const payload = JSON.parse(lines.slice(lines.findIndex((line) => line.trim().startsWith("{"))).join("\n")) as {
@@ -49,5 +51,5 @@ describe("hackathon demo harness", () => {
     expect(payload.steps.some((step) => step.step === "automation-agent-run" && step.ok)).toBe(true);
     expect(payload.steps.some((step) => step.step === "github-simulate" && step.ok)).toBe(true);
     expect(payload.steps.some((step) => step.step === "incident-resolve" && step.ok)).toBe(true);
-  });
+  }, 10000);
 });

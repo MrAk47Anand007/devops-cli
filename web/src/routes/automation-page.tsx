@@ -1,11 +1,14 @@
 import { AutomationRunList } from "../components/automation-run-list";
 import { DeployTimeline } from "../components/deploy-timeline";
+import { LiveActivityPanel } from "../components/live-activity-panel";
+import { useLiveDashboardRefresh } from "../hooks/use-live-dashboard-refresh";
 import { useDashboardQuery } from "../hooks/use-dashboard-query";
-import { fetchAutomationJobs, fetchDeploys } from "../lib/api";
+import { fetchAutomationPipeline, fetchDeploys } from "../lib/api";
 
 export function AutomationPage(): JSX.Element {
-  const jobsQuery = useDashboardQuery(fetchAutomationJobs);
-  const deploysQuery = useDashboardQuery(fetchDeploys);
+  const live = useLiveDashboardRefresh(["automation.updated", "deploy.created", "incident.created"]);
+  const jobsQuery = useDashboardQuery(fetchAutomationPipeline, [live.refreshToken]);
+  const deploysQuery = useDashboardQuery(fetchDeploys, [live.refreshToken]);
 
   return (
     <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
@@ -18,9 +21,14 @@ export function AutomationPage(): JSX.Element {
             SentinelOps backend.
           </p>
         </div>
+        <LiveActivityPanel
+          connected={live.connected}
+          error={live.error}
+          lastEvent={live.lastEvent}
+        />
         <AutomationRunList
           error={jobsQuery.error}
-          jobs={jobsQuery.data?.jobs ?? []}
+          items={jobsQuery.data?.items ?? []}
           loading={jobsQuery.loading}
         />
       </div>

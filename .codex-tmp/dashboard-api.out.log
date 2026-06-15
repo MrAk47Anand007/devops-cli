@@ -1,0 +1,9 @@
+
+> sentinelops@0.1.0 dashboard:api
+> tsx src/dashboard/main.ts
+
+{
+  "ok": true,
+  "command": "dashboard.start",
+  "baseUrl": "http://127.0.0.1:4100"
+}

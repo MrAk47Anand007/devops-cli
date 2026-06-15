@@ -65,29 +65,74 @@ describe("overview page", () => {
                   serviceId: "svc-api",
                   status: "degraded",
                   version: "2026.06.14.1",
-                  timestamp: "2026-06-14T00:00:00.000Z"
+                  timestamp: "2026-06-14T00:00:00.000Z",
+                  judgment: {
+                    decision: {
+                      action: "hold",
+                      confidence: 61,
+                      reasoning: "The deploy is degraded but operator review is safer than an immediate rollback.",
+                      evidence: ["Errors increased after deploy.", "Traffic remains above minimum load."],
+                      similarIncidentId: "inc-memory-2"
+                    },
+                    metricSourceId: "prometheus",
+                    metrics: {
+                      timestamp: 1718323200000,
+                      errorRate: 0.021,
+                      latencyP95: 680,
+                      requestsPerSec: 290
+                    },
+                    mode: "needs_review",
+                    capturedAt: "2026-06-14T00:00:00.000Z"
+                  }
                 }
               ]
             })
           };
         }
 
-        if (path === "/api/automation/jobs") {
+        if (path === "/api/automation/pipeline") {
           return {
             ok: true,
             json: async () => ({
-              jobs: [
+              items: [
                 {
-                  id: "job-1",
-                  runId: "run-1",
-                  source: "github_issue",
-                  serviceId: "svc-api",
-                  githubIssueUrl: "https://github.com/example/repo/issues/77",
-                  status: "awaiting_approval",
-                  approvalMessageId: null,
-                  execution: null,
-                  createdAt: "2026-06-14T00:00:00.000Z",
-                  updatedAt: "2026-06-14T00:10:00.000Z"
+                  job: {
+                    id: "job-1",
+                    runId: "run-1",
+                    source: "github_issue",
+                    serviceId: "svc-api",
+                    githubIssueUrl: "https://github.com/example/repo/issues/77",
+                    status: "awaiting_approval",
+                    approvalMessageId: null,
+                    execution: null,
+                    createdAt: "2026-06-14T00:00:00.000Z",
+                    updatedAt: "2026-06-14T00:10:00.000Z"
+                  },
+                  summary: "Investigate checkout failures",
+                  githubTarget: "https://github.com/example/repo/issues/77",
+                  risk: null,
+                  approvals: [],
+                  latestApproval: null,
+                  testSummary: {
+                    passed: 0,
+                    failed: 0,
+                    notRun: 0
+                  },
+                  guard: {
+                    status: "passed",
+                    summary: "Guard policy is satisfied for the current run state.",
+                    violations: []
+                  },
+                  stages: [
+                    {
+                      id: "intake",
+                      label: "Issue intake",
+                      status: "completed",
+                      detail: "GitHub issue arrived and created an automation job."
+                    }
+                  ],
+                  transcriptPreview: null,
+                  events: []
                 }
               ]
             })
@@ -106,7 +151,7 @@ describe("overview page", () => {
     await waitFor(() => {
       expect(screen.getAllByRole("heading", { name: "Runtime health" }).length).toBeGreaterThan(0);
       expect(screen.getByRole("heading", { name: "Deploy timeline" })).toBeInTheDocument();
-      expect(screen.getByRole("heading", { name: "Automation queue" })).toBeInTheDocument();
+      expect(screen.getByRole("heading", { name: "Automation pipeline" })).toBeInTheDocument();
     });
 
     expect(fetchMock).toHaveBeenCalled();
@@ -115,15 +160,20 @@ describe("overview page", () => {
         "/api/services",
         "/api/runtime/live",
         "/api/deploys",
-        "/api/automation/jobs"
+        "/api/automation/pipeline"
       ])
     );
-    expect(screen.getByText("API")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText("API")).toBeInTheDocument();
+    });
     expect(screen.getAllByText("svc-api").length).toBeGreaterThan(0);
     expect(screen.getAllByText("production").length).toBeGreaterThan(0);
     expect(screen.getAllByText("degraded").length).toBeGreaterThan(0);
-    expect(screen.getByText("2026.06.14.1")).toBeInTheDocument();
-    expect(screen.getByText("awaiting approval")).toBeInTheDocument();
+    expect(screen.getAllByText("2026.06.14.1").length).toBeGreaterThan(0);
+    expect(screen.getByText("Deploy detail")).toBeInTheDocument();
+    expect(screen.getByText("The deploy is degraded but operator review is safer than an immediate rollback."))
+      .toBeInTheDocument();
+    expect(screen.getByText("Investigate checkout failures")).toBeInTheDocument();
   });
 
   it("shows a service loading failure from the dashboard API", async () => {
@@ -148,8 +198,8 @@ describe("overview page", () => {
         if (path === "/api/deploys") {
           return { ok: true, json: async () => ({ deploys: [] }) };
         }
-        if (path === "/api/automation/jobs") {
-          return { ok: true, json: async () => ({ jobs: [] }) };
+        if (path === "/api/automation/pipeline") {
+          return { ok: true, json: async () => ({ items: [] }) };
         }
         throw new Error(`Unexpected fetch path in test: ${path}`);
       })
@@ -194,8 +244,8 @@ describe("overview page", () => {
         if (path === "/api/deploys") {
           return { ok: true, json: async () => ({ deploys: [] }) };
         }
-        if (path === "/api/automation/jobs") {
-          return { ok: true, json: async () => ({ jobs: [] }) };
+        if (path === "/api/automation/pipeline") {
+          return { ok: true, json: async () => ({ items: [] }) };
         }
         throw new Error(`Unexpected fetch path in test: ${path}`);
       })

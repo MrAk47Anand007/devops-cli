@@ -21,9 +21,12 @@ import {
 } from "./core/approval.js";
 import { createContextForService, validateContextFile } from "./core/context.js";
 import { resolveDashboardIncident } from "./core/dashboard.js";
+import { guard } from "./core/guard.js";
 import { simulateIntegration } from "./core/integration.js";
+import { listIntegrationHealth } from "./core/metric-sources.js";
 import { createLiveOnboarding } from "./core/onboarding.js";
 import { loadOperatorConfig, saveOperatorConfig, setOperatorEnabled } from "./core/operator-config.js";
+import { validateGuardrailConfig } from "./core/guardrail-config.js";
 import {
   askLatestCriticalQuestions,
   createPlanFromContextFile,
@@ -60,6 +63,7 @@ import {
   writeConfig,
   writeCurrentScenario
 } from "./core/store.js";
+import { logAudit } from "./deploy.js";
 import { DashboardStore } from "./dashboard/store.js";
 import { executeDecisionFlow, simulateScenario } from "./service.js";
 import { DashboardScenarioSchema, type HumanDecision, type Scenario } from "./types.js";
@@ -217,6 +221,35 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
     const slackChannel = getFlagValue(args, "--slack-channel");
     const agentCommand = getFlagValue(args, "--agent-command") ?? "codex";
     const agentArgsRaw = getFlagValue(args, "--agent-args") ?? "[\"exec\",\"--json\"]";
+    const judgmentProvider = getFlagValue(args, "--judgment-provider");
+    const openaiModel = getFlagValue(args, "--openai-model") ?? "gpt-4o-2024-08-06";
+    const anthropicModel =
+      getFlagValue(args, "--anthropic-model") ?? "claude-3-5-sonnet-latest";
+    const aiCliCommand = getFlagValue(args, "--judgment-command") ?? agentCommand;
+    const aiCliArgsRaw = getFlagValue(args, "--judgment-args") ?? agentArgsRaw;
+    const aiCliHealthArgsRaw = getFlagValue(args, "--judgment-health-args") ?? "[\"--help\"]";
+    const deployTarget = getFlagValue(args, "--deploy-target");
+    const kubernetesCommand = getFlagValue(args, "--kube-command") ?? "kubectl";
+    const kubernetesContext = getFlagValue(args, "--kube-context") ?? "";
+    const kubernetesNamespace = getFlagValue(args, "--kube-namespace") ?? "default";
+    const kubernetesDeployment = getFlagValue(args, "--kube-deployment") ?? "";
+    const kubernetesService = getFlagValue(args, "--kube-service") ?? "app";
+    const dockerCommand = getFlagValue(args, "--docker-command") ?? "docker";
+    const dockerComposeFile = getFlagValue(args, "--docker-compose-file") ?? "";
+    const dockerService = getFlagValue(args, "--docker-service") ?? "app";
+    const dockerContainer = getFlagValue(args, "--docker-container") ?? "";
+    const metricSource = getFlagValue(args, "--metric-source");
+    const prometheusUrl = getFlagValue(args, "--prometheus-url") ?? "";
+    const prometheusErrorRateExpr = getFlagValue(args, "--prometheus-error-rate-expr") ?? "";
+    const prometheusLatencyExpr = getFlagValue(args, "--prometheus-latency-expr") ?? "";
+    const prometheusRpsExpr = getFlagValue(args, "--prometheus-rps-expr") ?? "";
+    const grafanaUrl = getFlagValue(args, "--grafana-url") ?? "";
+    const grafanaToken = getFlagValue(args, "--grafana-token") ?? "";
+    const grafanaDatasourceUid = getFlagValue(args, "--grafana-datasource-uid") ?? "";
+    const grafanaDashboardUid = getFlagValue(args, "--grafana-dashboard-uid") ?? "";
+    const grafanaErrorRateExpr = getFlagValue(args, "--grafana-error-rate-expr") ?? "";
+    const grafanaLatencyExpr = getFlagValue(args, "--grafana-latency-expr") ?? "";
+    const grafanaRpsExpr = getFlagValue(args, "--grafana-rps-expr") ?? "";
     const enabledFlag = getFlagValue(args, "--enabled");
     const enabled = enabledFlag ? enabledFlag === "true" : true;
     const config =
@@ -226,6 +259,59 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
             slackChannel,
             agentCommand,
             agentArgs: JSON.parse(agentArgsRaw) as string[],
+            judgmentProvider:
+              judgmentProvider === "openai" ||
+              judgmentProvider === "anthropic" ||
+              judgmentProvider === "ai-cli"
+                ? judgmentProvider
+                : "canned",
+            openai: {
+              model: openaiModel
+            },
+            anthropic: {
+              model: anthropicModel
+            },
+            aiCli: {
+              command: aiCliCommand,
+              args: JSON.parse(aiCliArgsRaw) as string[],
+              healthArgs: JSON.parse(aiCliHealthArgsRaw) as string[]
+            },
+            deployTarget:
+              deployTarget === "kubernetes" || deployTarget === "docker"
+                ? deployTarget
+                : "simulator",
+            kubernetes: {
+              command: kubernetesCommand,
+              context: kubernetesContext,
+              namespace: kubernetesNamespace,
+              deployment: kubernetesDeployment,
+              service: kubernetesService
+            },
+            docker: {
+              command: dockerCommand,
+              composeFile: dockerComposeFile,
+              service: dockerService,
+              container: dockerContainer
+            },
+            metricSource:
+              metricSource === "prometheus" || metricSource === "grafana"
+                ? metricSource
+                : "simulator",
+            prometheus: {
+              url: prometheusUrl,
+              errorRateExpr: prometheusErrorRateExpr,
+              latencyP95Expr: prometheusLatencyExpr,
+              requestsPerSecExpr: prometheusRpsExpr
+            },
+            grafana: {
+              url: grafanaUrl,
+              token: grafanaToken,
+              datasourceUid: grafanaDatasourceUid,
+              dashboardUid: grafanaDashboardUid,
+              errorRateExpr: grafanaErrorRateExpr,
+              latencyP95Expr: grafanaLatencyExpr,
+              requestsPerSecExpr: grafanaRpsExpr
+            },
             enabled
           })
         : loadOperatorConfig();
@@ -249,6 +335,9 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
     const slackChannel = getFlagValue(args, "--slack-channel");
     const agentCommand = getFlagValue(args, "--agent-command") ?? "codex";
     const agentArgsRaw = getFlagValue(args, "--agent-args") ?? "[\"exec\",\"--json\"]";
+    const judgmentProvider = getFlagValue(args, "--judgment-provider");
+    const deployTarget = getFlagValue(args, "--deploy-target");
+    const metricSource = getFlagValue(args, "--metric-source");
     const enabledFlag = getFlagValue(args, "--enabled");
     if (!repo || !slackChannel) {
       return errorResult("onboard", "MISSING_ONBOARD_FIELDS", "Provide --repo or --repo-url and --slack-channel.");
@@ -259,6 +348,16 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
         slackChannel,
         agentCommand,
         agentArgs: JSON.parse(agentArgsRaw) as string[],
+        judgmentProvider:
+          judgmentProvider === "openai" ||
+          judgmentProvider === "anthropic" ||
+          judgmentProvider === "ai-cli"
+            ? judgmentProvider
+            : "canned",
+        deployTarget:
+          deployTarget === "kubernetes" || deployTarget === "docker" ? deployTarget : "simulator",
+        metricSource:
+          metricSource === "prometheus" || metricSource === "grafana" ? metricSource : "simulator",
         enabled: enabledFlag ? enabledFlag === "true" : true
       });
       return {
@@ -298,7 +397,25 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
       return errorResult("config", "MISSING_CONFIG_FIELDS", "Provide config set <key> <value>.");
     }
     const current = readConfig();
+    const decision = guard({
+      actor: "cli",
+      action: "config.write",
+      configKey: key,
+      previousValue: current[key] ?? null,
+      nextValue: value,
+      humanApproved: args.includes("--approved")
+    });
+    logAudit({
+      timestamp: Date.now(),
+      actor: "cli",
+      action: "config",
+      detail: `${key} -> ${value} (${decision.code})`
+    });
+    if (!decision.ok) {
+      return errorResult("config", "CONFIG_GUARD_BLOCKED", decision.message);
+    }
     current[key] = value;
+    validateGuardrailConfig(current);
     writeConfig(current);
     return {
       exitCode: 0,
@@ -347,6 +464,7 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
   }
 
   if (command === "integration" && subcommand === "list") {
+    const config = loadOperatorConfig();
     return {
       exitCode: 0,
       stdout: formatJson({
@@ -356,24 +474,43 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
           { id: "github", mode: "plugin-first" },
           { id: "slack", mode: "plugin-first" },
           { id: "dashboard", mode: "local-api" },
-          { id: "workspace", mode: "local-tools" }
+          { id: "workspace", mode: "local-tools" },
+          {
+            id: "metrics",
+            mode: config?.metricSource ?? "simulator",
+            provider: config?.metricSource ?? "simulator"
+          },
+          {
+            id: "judgment",
+            mode: config?.judgmentProvider ?? "canned",
+            provider: config?.judgmentProvider ?? "canned"
+          },
+          {
+            id: "deploy",
+            mode: config?.deployTarget ?? "simulator",
+            provider: config?.deployTarget ?? "simulator"
+          }
         ]
       })
     };
   }
 
   if (command === "integration" && subcommand === "health") {
+    const health = loadOperatorConfig() ? await listIntegrationHealth() : [
+      { id: "github", status: "degraded", detail: "Operator config not initialized.", checkedAt: Date.now() },
+      { id: "slack", status: "degraded", detail: "Operator config not initialized.", checkedAt: Date.now() },
+      { id: "dashboard", status: "ready", detail: "Local dashboard API is available in-process.", checkedAt: Date.now() },
+      { id: "workspace", status: "ready", detail: "Workspace-backed SentinelOps state is available.", checkedAt: Date.now() },
+      { id: "simulator-metrics", status: "ready", detail: "Simulator metrics are available.", checkedAt: Date.now() },
+      { id: "judgment-canned", status: "ready", detail: "Canned judgment brain is available.", checkedAt: Date.now() },
+      { id: "deploy-simulator", status: "ready", detail: "Simulator deploy target is available.", checkedAt: Date.now() }
+    ];
     return {
       exitCode: 0,
       stdout: formatJson({
         ok: true,
         command: "integration.health",
-        health: [
-          { id: "github", status: "plugin-first" },
-          { id: "slack", status: "plugin-first" },
-          { id: "dashboard", status: "ready" },
-          { id: "workspace", status: "ready" }
-        ]
+        health
       })
     };
   }
@@ -404,12 +541,29 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
 
   if (command === "automation" && subcommand === "enable") {
     try {
+      const current = loadOperatorConfig();
+      const decision = guard({
+        actor: "cli",
+        action: "config.write",
+        configKey: "operator.enabled",
+        previousValue: current?.enabled ?? null,
+        nextValue: true
+      });
+      logAudit({
+        timestamp: Date.now(),
+        actor: "cli",
+        action: "config",
+        detail: `operator.enabled -> true (${decision.code})`
+      });
+      if (!decision.ok) {
+        return errorResult("automation", "CONFIG_GUARD_BLOCKED", decision.message);
+      }
       return {
         exitCode: 0,
         stdout: formatJson({
           ok: true,
           command: "automation.enable",
-          config: setOperatorEnabled(true)
+          config: setOperatorEnabled(true, { actor: "cli" })
         })
       };
     } catch (error) {
@@ -419,12 +573,29 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
 
   if (command === "automation" && subcommand === "disable") {
     try {
+      const current = loadOperatorConfig();
+      const decision = guard({
+        actor: "cli",
+        action: "config.write",
+        configKey: "operator.enabled",
+        previousValue: current?.enabled ?? null,
+        nextValue: false
+      });
+      logAudit({
+        timestamp: Date.now(),
+        actor: "cli",
+        action: "config",
+        detail: `operator.enabled -> false (${decision.code})`
+      });
+      if (!decision.ok) {
+        return errorResult("automation", "CONFIG_GUARD_BLOCKED", decision.message);
+      }
       return {
         exitCode: 0,
         stdout: formatJson({
           ok: true,
           command: "automation.disable",
-          config: setOperatorEnabled(false)
+          config: setOperatorEnabled(false, { actor: "cli" })
         })
       };
     } catch (error) {
@@ -469,7 +640,7 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
       return errorResult("automation", "MISSING_SEED_FIELDS", "Provide --target and --service.");
     }
     try {
-      const result = handleGithubIssueOpened({
+      const result = await handleGithubIssueOpened({
         action: "opened",
         issue: {
           html_url: target,
@@ -1170,7 +1341,10 @@ export async function runCli(argv: string[]): Promise<CliRunResult> {
         stdout: formatJson({
           ok: true,
           command: "policy.set",
-          ...setPolicyThreshold(key, value)
+          ...setPolicyThreshold(key, value, {
+            actor: "cli",
+            approved: args.includes("--approved")
+          })
         })
       };
     } catch (error) {

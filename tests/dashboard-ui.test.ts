@@ -25,20 +25,9 @@ describe("dashboard ui", () => {
 
       expect(response.status).toBe(200);
       expect(html).toContain("SentinelOps Control Center");
-      expect(html).toContain("Scenario Loader");
-      expect(html).toContain("Service List");
-      expect(html).toContain("Logs Table");
-      expect(html).toContain("Alert Table");
-      expect(html).toContain("GitHub Issue URL");
-      expect(html).toContain("GitHub PR URL");
-      expect(html).toContain("Linked Repos And Channels");
-      expect(html).toContain("Automation Queue");
-      expect(html).toContain("operator-updated");
-      expect(html).toContain("automation-updated");
-      expect(html).toContain("startRealtimeRefresh");
-      expect(html).toContain("/api/operator-config");
-      expect(html).toContain("/api/automation/jobs");
-      expect(html).toContain("/api/scenarios/load");
+      expect(html).toContain("dashboard-root");
+      expect(html).toContain("window.__SENTINELOPS_DASHBOARD__");
+      expect(html).toContain('"routePath":"/"');
     } finally {
       await server.close();
     }
@@ -60,12 +49,10 @@ describe("dashboard ui", () => {
       const html = await response.text();
 
       expect(response.status).toBe(200);
-      expect(html).toContain("Incident Detail");
+      expect(html).toContain("dashboard-root");
+      expect(html).toContain("window.__SENTINELOPS_DASHBOARD__");
       expect(html).toContain(incidentId);
-      expect(html).toContain('id="service-list-section"');
-      expect(html).toContain('body[data-detail-mode="true"] #service-list-section');
-      expect(html).toContain("/api/incidents/");
-      expect(html).toContain("Automation Queue");
+      expect(html).toContain(`"routePath":"/incidents/${incidentId}"`);
     } finally {
       await server.close();
     }
@@ -77,22 +64,19 @@ describe("dashboard ui", () => {
       const automationHtml = await (await fetch(`${server.baseUrl}/automation`)).text();
       const integrationsHtml = await (await fetch(`${server.baseUrl}/integrations`)).text();
       const settingsHtml = await (await fetch(`${server.baseUrl}/settings`)).text();
+      const approvalsHtml = await (await fetch(`${server.baseUrl}/approvals`)).text();
 
-      expect(automationHtml).toContain('data-view="automation"');
-      expect(automationHtml).toContain("Automation Control Room");
-      expect(automationHtml).toContain('class="active" href="/automation"');
+      expect(automationHtml).toContain("dashboard-root");
+      expect(automationHtml).toContain('"routePath":"/automation"');
 
-      expect(integrationsHtml).toContain('data-view="integrations"');
-      expect(integrationsHtml).toContain("Connected Repos And Channels");
-      expect(integrationsHtml).toContain("GitHub To Slack Wiring");
-      expect(integrationsHtml).toContain('class="active" href="/integrations"');
+      expect(approvalsHtml).toContain("dashboard-root");
+      expect(approvalsHtml).toContain('"routePath":"/approvals"');
 
-      expect(settingsHtml).toContain('data-view="settings"');
-      expect(settingsHtml).toContain("Workspace Control Plane");
-      expect(settingsHtml).toContain("Give Codex The Repo And Slack Channel");
-      expect(settingsHtml).toContain("Start Live Mode");
-      expect(settingsHtml).toContain("/api/onboard/live");
-      expect(settingsHtml).toContain('class="active" href="/settings"');
+      expect(integrationsHtml).toContain("dashboard-root");
+      expect(integrationsHtml).toContain('"routePath":"/integrations"');
+
+      expect(settingsHtml).toContain("dashboard-root");
+      expect(settingsHtml).toContain('"routePath":"/settings"');
     } finally {
       await server.close();
     }

@@ -2,6 +2,8 @@ import { createAutomationJob, recordAutomationApproval } from "./automation.js";
 import { requireOperatorConfig } from "./operator-config.js";
 import { createPlanFromTarget } from "./planning.js";
 import { saveRun, writeLatestRunId } from "./store.js";
+import { ArgoCdTrigger, GitHubTrigger, JenkinsTrigger } from "./triggers.js";
+import type { RawWebhook, Trigger } from "./contracts.js";
 
 export interface GithubIssueOpenedPayload {
   action: string;
@@ -26,6 +28,30 @@ export interface SlackApprovalPayload {
   actions?: Array<{ action_id?: string; value?: string }>;
   state?: {
     values?: Record<string, Record<string, { value?: string }>>;
+  };
+}
+
+export type GithubWebhookResult =
+  | {
+      kind: "deploy_event";
+      deployEvent: {
+        deployId: string;
+        service: string;
+        sha: string;
+        target: string;
+      };
+    }
+  | ({
+      kind: "issue_event";
+    } & Awaited<ReturnType<typeof handleGithubIssueOpened>>);
+
+export interface TriggerWebhookResult {
+  kind: "deploy_event";
+  deployEvent: {
+    deployId: string;
+    service: string;
+    sha: string;
+    target: string;
   };
 }
 
@@ -73,7 +99,7 @@ function findStateValue(payload: SlackApprovalPayload, key: string): string | nu
   return null;
 }
 
-export function handleGithubIssueOpened(payload: GithubIssueOpenedPayload) {
+export async function handleGithubIssueOpened(payload: GithubIssueOpenedPayload) {
   if (payload.action !== "opened" && payload.action !== "labeled") {
     throw new Error(`Unsupported GitHub issue action ${payload.action}.`);
   }
@@ -95,7 +121,7 @@ export function handleGithubIssueOpened(payload: GithubIssueOpenedPayload) {
     ]
   });
   writeLatestRunId(run.id);
-  const { job } = createAutomationJob({
+  const { job } = await createAutomationJob({
     runId: run.id,
     serviceId,
     githubIssueUrl: payload.issue.html_url
@@ -103,9 +129,77 @@ export function handleGithubIssueOpened(payload: GithubIssueOpenedPayload) {
   return { run, job };
 }
 
-export function handleGithubWebhook(payload: unknown) {
+export async function handleGithubWebhook(
+  payload: unknown,
+  headers?: Record<string, string | undefined>
+): Promise<GithubWebhookResult> {
+  const raw: RawWebhook = {
+    headers: headers ?? {},
+    body: payload
+  };
+  const trigger = new GitHubTrigger(process.env.SENTINELOPS_GITHUB_WEBHOOK_SECRET ?? null);
+  if (!trigger.verifySignature(raw)) {
+    throw new Error("GitHub webhook signature verification failed.");
+  }
+  const deployEvent = trigger.toDeployEvent(raw);
+  if (deployEvent) {
+    return {
+      kind: "deploy_event",
+      deployEvent
+    };
+  }
   const issuePayload = payload as GithubIssueOpenedPayload;
-  return handleGithubIssueOpened(issuePayload);
+  return {
+    kind: "issue_event",
+    ...(await handleGithubIssueOpened(issuePayload))
+  };
+}
+
+function handleTriggerWebhook(
+  payload: unknown,
+  headers: Record<string, string | undefined> | undefined,
+  trigger: Trigger,
+  sourceLabel: string
+): TriggerWebhookResult {
+  const raw: RawWebhook = {
+    headers: headers ?? {},
+    body: payload
+  };
+  if (!trigger.verifySignature(raw)) {
+    throw new Error(`${sourceLabel} webhook signature verification failed.`);
+  }
+  const deployEvent = trigger.toDeployEvent(raw);
+  if (!deployEvent) {
+    throw new Error(`${sourceLabel} webhook did not contain a deploy event.`);
+  }
+  return {
+    kind: "deploy_event",
+    deployEvent
+  };
+}
+
+export async function handleJenkinsWebhook(
+  payload: unknown,
+  headers?: Record<string, string | undefined>
+): Promise<TriggerWebhookResult> {
+  return handleTriggerWebhook(
+    payload,
+    headers,
+    new JenkinsTrigger(process.env.SENTINELOPS_JENKINS_WEBHOOK_SECRET ?? null),
+    "Jenkins"
+  );
+}
+
+export async function handleArgoCdWebhook(
+  payload: unknown,
+  headers?: Record<string, string | undefined>
+): Promise<TriggerWebhookResult> {
+  return handleTriggerWebhook(
+    payload,
+    headers,
+    new ArgoCdTrigger(process.env.SENTINELOPS_ARGOCD_WEBHOOK_SECRET ?? null),
+    "ArgoCD"
+  );
 }
 
 export function handleSlackApprovalCallback(payload: SlackApprovalPayload) {

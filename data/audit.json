@@ -1,1 +1,8030 @@
-[]
+[
+  {
+    "timestamp": 1781448942127,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781448942376,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781448942377,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781448942386,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781448942430,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781448942440,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781448942443,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781448942475,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781448943037,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781448943191,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781448943204,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449035456,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449035665,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449035739,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449035763,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449035901,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449035912,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036038,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036088,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036096,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036119,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036127,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449036130,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036147,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036164,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036167,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036237,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036289,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449036292,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036669,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036673,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036795,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036798,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036809,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449036819,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449037231,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449037429,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449037487,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449037521,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449037534,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449038018,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449038279,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449038279,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449038296,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449038311,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449038562,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449203717,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449203816,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449203889,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449203913,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449204231,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449204469,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449204517,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449204522,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449204547,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449204551,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449204557,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449204576,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449204599,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449204610,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449204627,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449204658,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449204661,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449205348,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449205351,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449205503,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449205510,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449205547,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449205551,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449205567,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449205631,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449205664,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449205672,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449206101,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449206422,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449206639,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449206679,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449206908,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449207162,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449207205,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449243897,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449244360,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449244366,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449244388,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449244509,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449244564,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449244572,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449244593,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449244600,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449244606,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449244653,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449244671,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449244676,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449244769,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449244826,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449244849,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449245101,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449245105,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449245202,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449245211,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449245250,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449245255,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449245694,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449246343,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449246354,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449246420,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449246501,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449246536,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449246539,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449246560,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449247248,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449247279,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449247363,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449247406,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449248080,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449361554,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449361600,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449361622,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449361650,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449361728,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449361965,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449362014,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449362210,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449362217,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449362222,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449362234,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449362244,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449362249,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449362269,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449362286,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449362308,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449362426,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449362494,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449362501,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449362891,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449362913,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449363021,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449363026,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449363038,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449363042,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449363524,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449363763,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449363815,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449364029,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449364041,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449364427,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449364449,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449364516,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449364907,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449364946,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449365583,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387131,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387142,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387178,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387204,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387213,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387614,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387651,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387754,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387816,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387829,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387857,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387864,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449387867,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387900,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387919,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449387926,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449388009,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449388058,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449388065,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449388457,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449388462,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449388598,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449388606,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449388625,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449388631,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449388731,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449388807,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449388853,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449388920,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449389346,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449389518,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449389719,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449389742,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449390229,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449390269,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449390493,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449408492,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449408503,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449408569,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449408610,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449408661,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449408875,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449408914,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409165,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409173,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409175,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409194,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409200,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449409208,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409243,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409256,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409277,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409283,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409311,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449409316,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409643,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409648,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409792,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409797,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409826,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449409831,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449410293,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449410631,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449410689,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449410719,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449410732,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449411186,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449411209,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449411245,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449411304,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449411352,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449411940,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449683759,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449683873,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449683933,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449683967,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449683978,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449684238,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449684384,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449684457,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449684465,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449684491,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449684499,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449684504,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449684648,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449684668,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449684675,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449684711,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449684763,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449684768,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449685590,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449685753,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449685765,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449685773,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449685805,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449685856,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449685929,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449685934,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449685983,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449685988,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449686196,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449686231,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449686455,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449686497,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449687464,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449687469,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449687509,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746198,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746215,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746291,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746315,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746397,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746460,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746476,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746698,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746742,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746762,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746782,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746789,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449746793,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746800,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746826,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746843,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449746850,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449746852,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449747690,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449747697,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449747815,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449747840,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449747852,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449747862,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449747993,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449748021,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449748061,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449748074,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449748279,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449748759,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449748872,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449748906,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449748968,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449749116,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449749155,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449907969,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449908254,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449908312,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449908444,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449908636,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449908664,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449908801,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449908871,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449908878,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449908926,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449908934,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449908938,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449908939,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449908998,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449909002,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449909603,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449909609,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449909695,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449909723,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449909742,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449909748,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449910045,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449910680,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449910731,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449910784,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449910859,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449910886,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449911257,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449911289,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449911426,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449911465,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449911726,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449941944,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449942643,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449942650,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449942845,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449942858,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449942881,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449942900,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449942912,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449942919,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449942958,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449942977,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449943014,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449943088,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449943155,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781449943160,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449944373,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449944378,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449944461,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449944468,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449944473,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449944529,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449944559,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449944572,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449945138,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449945461,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449945513,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449945601,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449945937,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449945940,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781449945988,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781455186272,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781455186275,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781455186308,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781455186311,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781455186321,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781455186324,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781455186485,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781455479897,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781455479899,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781455479939,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781455479942,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781455479947,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781455479950,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781455480031,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781456026977,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781456026982,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781456027039,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781456027042,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781456027058,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781456027061,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781456027173,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781456384848,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781456384851,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781456384896,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781456384899,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781456384906,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781456384908,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781456385000,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781457998144,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781457998146,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458011779,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458011782,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458011829,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458011831,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458011837,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458011840,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458011911,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458026019,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458026023,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458026146,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458026154,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458026165,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458026175,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458026393,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458261117,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458262405,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458262407,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458262574,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458262651,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458262723,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781458262728,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458262836,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458262843,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458262858,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458262865,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781458262871,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458262885,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458262920,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458262924,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458263968,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458264391,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458264398,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458264484,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458264488,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458264525,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458264532,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458264697,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458264718,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458264782,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458264798,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458264939,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458264987,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458264997,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458265128,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458265161,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458265222,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458307332,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458308792,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458308819,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458308870,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458308948,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458308969,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458308979,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309075,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309151,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309162,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309256,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309263,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781458309268,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309293,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309311,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309316,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309446,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309474,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309504,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781458309510,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309680,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309684,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309782,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309787,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458309894,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458310319,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458310467,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458310491,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458311347,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458311379,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458383547,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458384256,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458384417,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458384590,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458384598,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458384616,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458384622,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781458384628,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458384647,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458384671,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458384690,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458384741,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781458384804,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458384833,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458384838,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458385024,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458385030,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458385044,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458385049,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458385719,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458385790,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458385815,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458385824,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458385831,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458386433,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458386842,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458386884,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458386909,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458386952,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458632589,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458633992,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634002,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634016,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634126,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634206,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634212,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634229,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634263,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781458634328,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634343,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634382,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634410,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781458634448,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634512,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634648,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634657,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634787,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634823,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634854,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634865,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634880,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634884,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634889,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458634905,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458635480,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458635485,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458635849,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458635869,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458636892,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458636923,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458853098,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458853821,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458854025,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458854035,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458854055,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458854125,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781458854130,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458854563,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458854568,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458854688,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458854693,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458854712,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458854721,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458855120,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458855152,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458855175,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458855209,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458855307,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458855959,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458856642,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458856706,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458856729,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458857155,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458857189,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458979254,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980022,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980029,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980198,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980214,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980235,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980258,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980273,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781458980323,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980346,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980422,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980431,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980500,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781458980509,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980577,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980588,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980738,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980746,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980779,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980788,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980838,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980873,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980917,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458980938,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458981227,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458981553,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458981664,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458982225,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458982249,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458982293,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458982329,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458982682,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458982701,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458982709,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458982726,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458982734,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781458982740,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458982755,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458982774,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781458982781,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459244469,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459245703,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459245720,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459245867,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459245887,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459245916,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459245932,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459245968,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459245979,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459245985,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459246121,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459246127,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459246149,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459246161,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459246211,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459246265,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459246272,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459246401,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459246411,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459246450,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459246459,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459246695,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459246908,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459246945,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459248063,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459248087,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459248102,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459248140,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459292103,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459292263,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459292322,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459292391,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459292403,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459293177,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459293324,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459293475,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459293485,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459293503,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459293501,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459293527,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459293537,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459293553,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459293560,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459293581,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459293603,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459293610,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459294229,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459294377,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459294439,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459294580,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459294589,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459294608,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459294643,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459294804,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459294912,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459294941,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459295298,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459295351,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459295999,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459324905,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459325078,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459325129,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459325191,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459325221,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459326545,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459326758,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459326793,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459326808,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459326854,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459326866,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459326878,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459326895,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459326921,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459326929,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459327098,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459327113,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459327128,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459327216,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459327222,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459327237,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459327245,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459327266,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459327333,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459327463,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459327713,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459327758,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459327881,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459328356,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459328379,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459329047,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459329099,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459355700,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459355788,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459355856,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459355903,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459356269,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459357816,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459357830,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459357960,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459358064,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459358136,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459358188,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459358250,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459358266,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459358287,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459358301,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459358348,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459358380,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459358420,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459358430,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459358474,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459358483,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459358837,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459358916,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459359118,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459359170,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459359962,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459359991,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459530500,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459531433,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459531561,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459531683,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459531692,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459531711,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459531725,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459531732,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459531761,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459531818,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459531827,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459531876,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459531914,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459531921,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459532369,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459532382,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459532540,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459532552,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459532585,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459532593,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459532801,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459532885,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459532939,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459532968,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459533007,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459533028,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459533079,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459533845,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459533891,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459533897,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459587461,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459588955,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589090,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589167,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589178,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589206,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589217,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459589226,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589275,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589304,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589310,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589491,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589498,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589505,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589526,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589540,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459589554,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589656,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589667,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589707,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589728,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589736,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459589984,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459590125,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459590141,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459590320,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459590347,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459591249,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459591289,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459613169,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459613415,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459613604,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459613652,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459613662,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459613681,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459613691,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459613698,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459613715,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459613743,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459613784,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459613792,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459613802,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459614032,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459614045,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459614176,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459614207,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459614222,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459614232,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459614582,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459614736,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459614786,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459614841,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459614858,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459615472,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459615563,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459615588,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459615856,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459615896,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459616046,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459657013,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459657017,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459657062,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459657066,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459657073,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459657077,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459657155,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459702130,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459702830,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459702844,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459702992,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459703167,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459703177,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459703194,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459703203,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459703213,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459703287,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459703329,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459703377,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459703467,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459703528,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781459703568,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459704016,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459704029,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459704251,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459704262,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459704297,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459704308,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459704935,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459705054,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459705216,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459705295,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459705400,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459705975,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459706179,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459706217,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459706265,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459706565,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781459706628,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460208102,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460208123,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460208151,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460208198,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460208210,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460210162,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460210177,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460210328,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460210336,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460210354,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460210404,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460210413,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781460210422,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460210460,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460210486,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460210528,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781460210576,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460210633,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460210921,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460210929,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460211051,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460211059,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460211076,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460211083,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460211362,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460211451,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460211555,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460212787,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460212823,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460244824,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460245240,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460245264,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460245981,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460246208,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460246293,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460246318,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460246390,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460246404,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781460246453,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460246410,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460246481,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460246503,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460246534,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460246553,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460246683,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460246704,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460246747,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460246756,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460247232,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460247356,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460247475,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460247510,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460247541,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460247981,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460248630,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460248702,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460444118,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460444304,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460444428,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460444471,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460444488,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460445705,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460445877,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460445891,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460445964,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460445991,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460446026,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460446055,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460446114,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460446167,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460446463,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460446484,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460446512,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460446533,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781460446542,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460446843,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460446854,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460446998,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460447005,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460447645,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460448300,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460448325,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460448532,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460449084,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460449132,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460450295,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460759101,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460759150,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460759197,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460759226,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460759250,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460759634,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460759776,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460759916,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460759937,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460759974,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460759984,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781460760045,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460760065,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460760088,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781460760096,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460760125,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460760152,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460760491,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460760502,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460760686,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460760694,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460760738,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460760748,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460761180,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460761476,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460761951,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460762003,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460762549,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460790919,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460791324,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460791330,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460791436,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460791518,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460791534,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460791598,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460791608,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781460791619,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460791651,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460791659,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460791686,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460791697,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460791750,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781460791760,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460792482,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460792560,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460792586,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460792618,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460793039,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460803063,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460803688,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460803705,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460803861,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460803904,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460803927,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460803946,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460804046,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781460804057,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460804099,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460804122,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460804133,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460804199,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781460804209,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460804552,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460804563,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460804861,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460804871,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460804887,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460804983,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460805330,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460805913,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460805931,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460805953,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460806042,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460806058,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460806571,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460806618,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460806835,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460806876,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781460806928,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461041039,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461041885,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461042006,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461042150,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461042172,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461042240,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461042292,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781461042301,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461042327,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781461042348,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461042362,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461042383,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461042450,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461042476,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461042644,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461042654,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461042668,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461042680,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461043103,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461043539,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461043578,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461043610,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461043627,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461044223,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461044255,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461044269,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461044306,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461276773,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461277270,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461277425,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461277486,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461277517,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461277572,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461277593,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781461277604,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461277636,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461277686,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461277695,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461277846,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461277960,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781461277969,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461278293,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461278301,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461278991,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461279104,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461279137,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461279153,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461279503,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461279514,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461279631,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461279640,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461280234,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461280310,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461280378,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461280805,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461280857,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461280933,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461282044,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461523702,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461523934,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461523962,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461523993,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461524014,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461524341,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461524472,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461524521,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461524551,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461524572,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461524594,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781461524603,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461524623,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461524653,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461524664,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461524708,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461524809,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 95 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781461524819,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461525547,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461525564,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461526073,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461526170,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461526401,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461526489,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461526520,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461526800,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461526816,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461526829,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461526838,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461527259,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461528424,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461743915,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461745804,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461745879,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461746052,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461746104,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461746129,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461746226,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461746341,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461746349,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461746441,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461746495,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461746699,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461746710,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461747730,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461748247,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461748314,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461748332,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461748343,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461748587,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461748651,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461749078,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781461749282,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462353329,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462353466,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462353554,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462353581,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462354807,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462354821,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462355030,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462355055,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462355085,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462355163,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781462355176,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462355205,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462355229,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462355240,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462355285,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462355733,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462355784,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462355882,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "threshold.high -> 55 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462355917,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 92 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462355924,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.requireHumanApproval -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462356525,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462356917,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462356950,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462356968,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462356980,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462357725,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462357751,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462358002,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462358140,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462358185,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462358565,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462379469,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462379502,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462379532,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462379626,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462379747,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462380118,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462380364,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462380379,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462380401,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462380418,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781462380427,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462380472,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462380498,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462380545,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.critical -> 96 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462380560,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462380743,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462380770,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462380837,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "threshold.high -> 55 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462380846,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 92 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462380858,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.requireHumanApproval -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462381546,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462381631,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462381649,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462381763,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462381870,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462382410,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462382485,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462382514,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462382764,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462382803,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462392919,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462405742,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462422763,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462422797,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462422860,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462422877,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462423452,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462423589,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462423603,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462423634,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462423644,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781462423654,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462423675,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462423714,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462423724,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462423746,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.critical -> 96 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462423779,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462424881,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462424891,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462424950,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "threshold.high -> 55 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462424958,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 92 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462424966,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.requireHumanApproval -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462425315,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462425366,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462425730,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462425743,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462425758,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462425766,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462426024,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462426051,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462426317,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462426410,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462426431,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462426453,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462673452,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462674143,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462674155,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462674473,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462674487,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462674511,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462674523,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781462674536,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462674587,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462674601,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462674728,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462674739,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462674978,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462674989,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462675066,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "threshold.high -> 55 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462675081,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 92 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462675093,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.requireHumanApproval -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462675324,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462675901,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462675940,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462675931,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462675983,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462676008,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462676039,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462677082,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462677405,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462677444,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462677567,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462677618,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462678319,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462872343,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462873644,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462873654,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462873858,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462874086,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462874100,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462874123,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462874187,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781462874207,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462874290,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462874312,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462874326,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462874507,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462874517,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462874600,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "threshold.high -> 55 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462874639,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 92 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462874673,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.requireHumanApproval -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462875435,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462875462,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462875509,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462875520,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462876258,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462876483,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462876547,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462876611,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462876640,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462877012,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462877067,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462877119,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462877154,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462877797,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462970307,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462971861,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462971871,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972137,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 75 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972151,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972190,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972233,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781462972249,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972280,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972288,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972305,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972317,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972355,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972388,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.critical -> 96 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972406,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972684,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972696,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972778,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "threshold.high -> 55 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972789,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 92 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972797,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.requireHumanApproval -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462972988,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462973027,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462973638,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462973648,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462973669,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462973681,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462974086,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462974381,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462974399,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781462974440,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463171796,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463171804,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463171834,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "threshold.high -> 55 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463171841,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 92 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463171847,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.requireHumanApproval -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463217934,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463217940,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463217964,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "threshold.high -> 55 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463217969,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 92 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463217974,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.requireHumanApproval -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463218214,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463218220,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463218233,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463218238,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463218400,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463236160,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463236976,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463236988,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463237007,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.high -> 60 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463237187,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463237225,
+    "actor": "cli",
+    "action": "config",
+    "detail": "approval.channel -> ops-room (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463237401,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 90 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463237418,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (REQUIRES_APPROVAL)"
+  },
+  {
+    "timestamp": 1781463237431,
+    "actor": "cli",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 80 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463237530,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463237552,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463237582,
+    "actor": "cli",
+    "action": "config",
+    "detail": "threshold.critical -> 96 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463237561,
+    "actor": "cli",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463237987,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463237996,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463238068,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "threshold.high -> 55 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463238076,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.minConfidence -> 92 (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463238084,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "guard.rollback.requireHumanApproval -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463238489,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463238592,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463238622,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463238758,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463238774,
+    "actor": "test",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463239444,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463239457,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> false (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463239476,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463239488,
+    "actor": "dashboard",
+    "action": "config",
+    "detail": "operator.enabled -> true (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463239607,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463239632,
+    "actor": "operator-config",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  },
+  {
+    "timestamp": 1781463240321,
+    "actor": "onboarding",
+    "action": "config",
+    "detail": "operator-config save (ALLOWED)"
+  }
+]

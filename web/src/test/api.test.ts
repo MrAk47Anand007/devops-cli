@@ -137,9 +137,10 @@ describe("dashboard API client", () => {
   it("matches the live dashboard server contract for services and runtime", async () => {
     server = await startDashboardServer();
 
-    const { fetchServices, fetchRuntimeLive } = await loadApiModule(server.baseUrl);
+    const { fetchGuardrailPolicyConfig, fetchServices, fetchRuntimeLive } = await loadApiModule(server.baseUrl);
     const services = await fetchServices();
     const runtime = await fetchRuntimeLive();
+    const policy = await fetchGuardrailPolicyConfig();
 
     expect(services.services.length).toBeGreaterThan(0);
     expect(services.services[0]).toEqual(
@@ -166,6 +167,22 @@ describe("dashboard API client", () => {
         revision: null,
         revisionDetail: expect.any(String),
         deployState: null
+      })
+    );
+
+    expect(policy.policy).toEqual(
+      expect.objectContaining({
+        thresholds: expect.objectContaining({
+          medium: expect.any(Number),
+          high: expect.any(Number),
+          critical: expect.any(Number)
+        }),
+        rollback: expect.objectContaining({
+          minConfidence: expect.any(Number),
+          maxErrorRate: expect.any(Number),
+          maxLatencyP95: expect.any(Number),
+          requireHumanApproval: expect.any(Boolean)
+        })
       })
     );
   });

@@ -101,13 +101,26 @@ describe("cli testing and policy workflow", () => {
   });
 
   it("updates policy thresholds and changes effective gate behavior", async () => {
+    await runCli(["config", "set", "threshold.critical", "96", "--json"]);
     await runCli(["config", "set", "threshold.high", "90", "--json"]);
     await runCli(["scenario", "load", "post-deploy-errors", "--json"]);
     await runCli(["context", "create", "--service", "svc-api", "--json"]);
     const plan = await runCli(["plan", "create", "--context", ".sentinelops/context.json", "--json"]);
     const runId = JSON.parse(plan.stdout).run.id;
 
-    const setPolicy = await runCli(["policy", "set", "threshold.high", "90", "--json"]);
+    const blockedPolicy = await runCli(["policy", "set", "threshold.high", "95", "--json"]);
+    const blockedPayload = JSON.parse(blockedPolicy.stdout);
+    expect(blockedPayload.ok).toBe(false);
+    expect(blockedPayload.error.code).toBe("POLICY_SET_FAILED");
+
+    const setPolicy = await runCli([
+      "policy",
+      "set",
+      "threshold.high",
+      "90",
+      "--approved",
+      "--json"
+    ]);
     const setPolicyPayload = JSON.parse(setPolicy.stdout);
     expect(setPolicyPayload.ok).toBe(true);
     expect(setPolicyPayload.value).toBe("90");

@@ -2,7 +2,8 @@ import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import { isAnomalous, judge } from "../src/agent.js";
+import { createDefaultJudgmentBrain, isAnomalous, judge } from "../src/agent.js";
+import { saveOperatorConfig } from "../src/core/operator-config.js";
 import type { Incident } from "../src/types.js";
 
 const seededIncident: Incident = {
@@ -25,10 +26,12 @@ describe("agent", () => {
     const incidentsPath = join(tempDir, "incidents.json");
     writeFileSync(incidentsPath, `${JSON.stringify([seededIncident], null, 2)}\n`);
     process.env.SENTINELOPS_INCIDENTS_PATH = incidentsPath;
+    process.env.SENTINELOPS_WORKSPACE_ROOT = tempDir;
   });
 
   afterEach(() => {
     delete process.env.SENTINELOPS_INCIDENTS_PATH;
+    delete process.env.SENTINELOPS_WORKSPACE_ROOT;
     rmSync(tempDir, { recursive: true, force: true });
   });
 
@@ -83,5 +86,35 @@ describe("agent", () => {
 
     expect(decision.action).toBe("rollback");
     expect(decision.confidence).toBeGreaterThanOrEqual(85);
+  });
+
+  it("supports an ai-cli judgment brain selected from operator config", async () => {
+    saveOperatorConfig({
+      trackedRepos: ["example/repo"],
+      slackChannel: "#ops",
+      agentCommand: "codex",
+      agentArgs: ["exec", "--json"],
+      judgmentProvider: "ai-cli",
+      aiCli: {
+        command: "node",
+        args: [
+          "-e",
+          "process.stdin.resume(); process.stdin.on('data', () => {}); process.stdin.on('end', () => console.log(JSON.stringify({action:'hold',confidence:54,reasoning:'cli brain',evidence:['cli evidence'],similarIncidentId:null})));"
+        ],
+        healthArgs: ["-e", "process.exit(0)"]
+      },
+      enabled: true
+    });
+
+    const decision = await judge({
+      timestamp: Date.now(),
+      errorRate: 0.045,
+      latencyP95: 380,
+      requestsPerSec: 600
+    });
+
+    expect(decision.action).toBe("hold");
+    expect(decision.reasoning).toBe("cli brain");
+    expect(createDefaultJudgmentBrain().id).toBe("ai-cli");
   });
 });

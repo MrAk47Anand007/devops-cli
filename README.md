@@ -193,18 +193,23 @@ The hackathon dashboard backend is now available as a local HTTP API backed by d
 
 The default port is `4100`. Set `SENTINELOPS_DASHBOARD_PORT` to override it.
 
-The browser dashboard now includes:
+## Dashboard
+
+- API server: `npm run dashboard:api`
+- React frontend dev server: `npm run dashboard:web`
+- Build frontend assets for the backend shell: `npm run dashboard:web:build`
+
+The responsive dashboard frontend now lives under `web/`, while `src/dashboard/server.ts` remains the source of truth for API routes, SSE, webhook intake, and runtime adapter state.
+
+The React dashboard now includes:
 
 - scenario loader
-- service list with health and linked GitHub references
-- logs table
-- alert table
-- deploy and incident timeline
-- incident detail deep links at `/incidents/:id`
-- manual forms for logs, alerts, deploys, and incidents
-- operator config panel for tracked repos, Slack channel, agent command, and enabled state
+- responsive overview, automation, approvals, integrations, and incident workspaces
+- service health with runtime revision detail
+- deploy timeline and incident backlog deep links at `/incidents/:id`
+- approvals inbox with approve, hold, and reject browser actions
+- operator config and onboarding-backed integration views
 - automation queue showing GitHub issue jobs, approval state, and agent transcript summaries
-- Settings page live setup form for GitHub repo + Slack channel onboarding
 
 ## Hackathon Demo
 

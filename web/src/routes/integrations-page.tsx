@@ -1,11 +1,22 @@
+import { useState } from "react";
+import { LiveActivityPanel } from "../components/live-activity-panel";
 import { ServiceHealthPanel } from "../components/service-health-panel";
 import { RuntimeHealthPanel } from "../components/runtime-health-panel";
+import { useLiveDashboardRefresh } from "../hooks/use-live-dashboard-refresh";
 import { useDashboardQuery } from "../hooks/use-dashboard-query";
-import { fetchRuntimeLive, fetchServices } from "../lib/api";
+import { fetchIntegrationHealth, fetchRuntimeLive, fetchServices } from "../lib/api";
 
 export function IntegrationsPage(): JSX.Element {
-  const servicesQuery = useDashboardQuery(fetchServices);
-  const runtimeQuery = useDashboardQuery(fetchRuntimeLive);
+  const live = useLiveDashboardRefresh([
+    "integration.updated",
+    "config.updated",
+    "operator.toggled",
+    "onboarding.updated"
+  ]);
+  const servicesQuery = useDashboardQuery(fetchServices, [live.refreshToken]);
+  const runtimeQuery = useDashboardQuery(fetchRuntimeLive, [live.refreshToken]);
+  const [healthRefreshCount, setHealthRefreshCount] = useState(0);
+  const healthQuery = useDashboardQuery(fetchIntegrationHealth, [healthRefreshCount, live.refreshToken]);
 
   return (
     <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
@@ -19,17 +30,31 @@ export function IntegrationsPage(): JSX.Element {
           </p>
         </div>
         <RuntimeHealthPanel
-          error={runtimeQuery.error}
-          loading={runtimeQuery.loading}
+          error={healthQuery.error ?? runtimeQuery.error}
+          health={healthQuery.data?.health ?? []}
+          loading={runtimeQuery.loading || healthQuery.loading}
+          onRefresh={() => {
+            setHealthRefreshCount((current) => current + 1);
+          }}
+          refreshing={healthQuery.loading}
           runtime={runtimeQuery.data}
         />
       </div>
-      <ServiceHealthPanel
-        error={servicesQuery.error}
-        loading={servicesQuery.loading}
-        runtime={runtimeQuery.data}
-        services={servicesQuery.data?.services ?? []}
-      />
+      <div className="grid gap-6">
+        <ServiceHealthPanel
+          error={servicesQuery.error}
+          loading={servicesQuery.loading}
+          runtimeError={runtimeQuery.error}
+          runtimeLoading={runtimeQuery.loading}
+          runtime={runtimeQuery.data}
+          services={servicesQuery.data?.services ?? []}
+        />
+        <LiveActivityPanel
+          connected={live.connected}
+          error={live.error}
+          lastEvent={live.lastEvent}
+        />
+      </div>
     </section>
   );
 }

@@ -24,9 +24,21 @@ describe("app shell", () => {
       "href",
       "/approvals"
     );
+    expect(within(navigation).getByRole("link", { name: "Incidents" })).toHaveAttribute(
+      "href",
+      "/incidents"
+    );
     expect(within(navigation).getByRole("link", { name: "Integrations" })).toHaveAttribute(
       "href",
       "/integrations"
+    );
+    expect(within(navigation).getByRole("link", { name: "Memory" })).toHaveAttribute(
+      "href",
+      "/memory"
+    );
+    expect(within(navigation).getByRole("link", { name: "Settings" })).toHaveAttribute(
+      "href",
+      "/settings"
     );
     expect(within(navigation).getByRole("link", { name: "Overview" })).toHaveAttribute("aria-current", "page");
     expect(statusAnnouncer).toHaveTextContent("Runtime health 98.6%.");
@@ -44,7 +56,10 @@ describe("app shell", () => {
       { path: "/", heading: "SentinelOps Control Center", current: "Overview" },
       { path: "/automation", heading: "Automation Workspace", current: "Automation" },
       { path: "/approvals", heading: "Approvals Workspace", current: "Approvals" },
-      { path: "/integrations", heading: "Integrations Workspace", current: "Integrations" }
+      { path: "/incidents", heading: "Incident Workspace", current: "Incidents" },
+      { path: "/integrations", heading: "Integrations Workspace", current: "Integrations" },
+      { path: "/memory", heading: "Audit and Memory Workspace", current: "Memory" },
+      { path: "/settings", heading: "Settings Workspace", current: "Settings" }
     ];
 
     for (const route of routes) {

@@ -104,6 +104,8 @@ describe("cli repo and change workflow", () => {
     expect(githubPayload.resultPackage.readiness.requiresPlugin).toBe(true);
     expect(githubPayload.resultPackage.pluginPayloads.github.commentBody).toContain(runId);
     expect(githubPayload.resultPackage.pluginPayloads.github.status).toBe("approved");
+    expect(githubPayload.resultPackage.pluginPayloads.github.closeIssue).toBe(false);
+    expect(githubPayload.resultPackage.pluginPayloads.slack.text).toContain("SentinelOps follow-up");
 
     const pushRecord = await runCli([
       "push",

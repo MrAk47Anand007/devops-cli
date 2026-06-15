@@ -33,6 +33,15 @@ export const DecisionSchema = z.object({
 });
 export type Decision = z.infer<typeof DecisionSchema>;
 
+export const DeployJudgmentSnapshotSchema = z.object({
+  decision: DecisionSchema,
+  metricSourceId: z.string(),
+  metrics: MetricsSchema,
+  mode: z.enum(["autonomous", "needs_review"]),
+  capturedAt: z.string()
+});
+export type DeployJudgmentSnapshot = z.infer<typeof DeployJudgmentSnapshotSchema>;
+
 export const HumanDecisionSchema = z.enum(["approve", "override"]);
 export type HumanDecision = z.infer<typeof HumanDecisionSchema>;
 
@@ -88,7 +97,9 @@ export const DeployRecordSchema = z.object({
   serviceId: z.string(),
   status: z.enum(["healthy", "degraded", "failed"]),
   version: z.string(),
-  timestamp: z.string()
+  timestamp: z.string(),
+  target: z.string().optional(),
+  judgment: DeployJudgmentSnapshotSchema.nullable().optional()
 });
 export type DeployRecord = z.infer<typeof DeployRecordSchema>;
 
@@ -211,6 +222,112 @@ export const OperatorConfigSchema = z.object({
   slackChannel: z.string().min(1),
   agentCommand: z.string().min(1),
   agentArgs: z.array(z.string()),
+  judgmentProvider: z.enum(["canned", "openai", "anthropic", "ai-cli"]).default("canned"),
+  openai: z
+    .object({
+      model: z.string().default("gpt-4o-2024-08-06")
+    })
+    .default({
+      model: "gpt-4o-2024-08-06"
+    }),
+  anthropic: z
+    .object({
+      model: z.string().default("claude-3-5-sonnet-latest")
+    })
+    .default({
+      model: "claude-3-5-sonnet-latest"
+    }),
+  aiCli: z
+    .object({
+      command: z.string().default("codex"),
+      args: z.array(z.string()).default(["exec", "--json"]),
+      healthArgs: z.array(z.string()).default(["--help"])
+    })
+    .default({
+      command: "codex",
+      args: ["exec", "--json"],
+      healthArgs: ["--help"]
+    }),
+  deployTarget: z.enum(["simulator", "kubernetes", "docker"]).default("simulator"),
+  kubernetes: z
+    .object({
+      command: z.string().default("kubectl"),
+      context: z.string().default(""),
+      namespace: z.string().default("default"),
+      deployment: z.string().default(""),
+      service: z.string().default("app")
+    })
+    .default({
+      command: "kubectl",
+      context: "",
+      namespace: "default",
+      deployment: "",
+      service: "app"
+    }),
+  docker: z
+    .object({
+      command: z.string().default("docker"),
+      composeFile: z.string().default(""),
+      service: z.string().default("app"),
+      container: z.string().default("")
+    })
+    .default({
+      command: "docker",
+      composeFile: "",
+      service: "app",
+      container: ""
+    }),
+  metricSource: z
+    .enum(["simulator", "prometheus", "grafana"])
+    .default("simulator"),
+  prometheus: z
+    .object({
+      url: z.string().default(""),
+      errorRateExpr: z.string().default(""),
+      latencyP95Expr: z.string().default(""),
+      requestsPerSecExpr: z.string().default(""),
+      baselineErrorRateExpr: z.string().default(""),
+      baselineLatencyP95Expr: z.string().default(""),
+      baselineRequestsPerSecExpr: z.string().default(""),
+      baselineLookbackHours: z.number().int().min(1).max(24 * 30).default(168)
+    })
+    .default({
+      url: "",
+      errorRateExpr: "",
+      latencyP95Expr: "",
+      requestsPerSecExpr: "",
+      baselineErrorRateExpr: "",
+      baselineLatencyP95Expr: "",
+      baselineRequestsPerSecExpr: "",
+      baselineLookbackHours: 168
+    }),
+  grafana: z
+    .object({
+      url: z.string().default(""),
+      token: z.string().default(""),
+      datasourceUid: z.string().default(""),
+      dashboardUid: z.string().default(""),
+      errorRateExpr: z.string().default(""),
+      latencyP95Expr: z.string().default(""),
+      requestsPerSecExpr: z.string().default(""),
+      baselineErrorRateExpr: z.string().default(""),
+      baselineLatencyP95Expr: z.string().default(""),
+      baselineRequestsPerSecExpr: z.string().default(""),
+      baselineLookbackHours: z.number().int().min(1).max(24 * 30).default(168)
+    })
+    .default({
+      url: "",
+      token: "",
+      datasourceUid: "",
+      dashboardUid: "",
+      errorRateExpr: "",
+      latencyP95Expr: "",
+      requestsPerSecExpr: "",
+      baselineErrorRateExpr: "",
+      baselineLatencyP95Expr: "",
+      baselineRequestsPerSecExpr: "",
+      baselineLookbackHours: 168
+    }),
   enabled: z.boolean(),
   updatedAt: z.string()
 });

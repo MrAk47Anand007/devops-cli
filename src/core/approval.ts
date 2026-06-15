@@ -1,4 +1,4 @@
-import { loadRun, saveRun } from "./store.js";
+import { listRuns, loadRun, saveRun } from "./store.js";
 import { evaluateRunPolicy } from "./policy.js";
 import { getChangeDiff } from "./repo.js";
 import { type ApprovalRecord, type ApprovalStatus, type RunRecord } from "../types.js";
@@ -125,6 +125,26 @@ export function requireApproval(runId: string): {
 } {
   const run = requireRun(runId);
   return { run, required: requiresApproval(run) };
+}
+
+export function listPendingApprovals(): Array<{
+  runId: string;
+  summary: string;
+  risk: NonNullable<RunRecord["plan"]>["risk"] | null;
+  githubTarget: string | null;
+}> {
+  return listRuns()
+    .filter(
+      (run) =>
+        requireApproval(run.id).required &&
+        !run.approvals.some((entry) => entry.status === "approved")
+    )
+    .map((run) => ({
+      runId: run.id,
+      summary: run.plan?.summary ?? "No plan summary available.",
+      risk: run.plan?.risk ?? null,
+      githubTarget: run.githubTarget
+    }));
 }
 
 export function pushGate(runId: string):

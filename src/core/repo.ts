@@ -70,6 +70,88 @@ function workspaceDiffFiles(): string[] {
   return tracked.filter((file) => existsSync(join(process.cwd(), file)));
 }
 
+function readTranscriptFinalAgentMessage(transcriptPath: string | null): string | null {
+  if (!transcriptPath || !existsSync(transcriptPath)) {
+    return null;
+  }
+
+  const lines = readFileSync(transcriptPath, "utf8").split(/\r?\n/);
+  let latestMessage: string | null = null;
+
+  for (const line of lines) {
+    if (!line.startsWith("{")) {
+      continue;
+    }
+    try {
+      const parsed = JSON.parse(line) as {
+        type?: string;
+        item?: { type?: string; text?: string; status?: string };
+      };
+      if (
+        parsed.type === "item.completed" &&
+        parsed.item?.type === "agent_message" &&
+        typeof parsed.item.text === "string" &&
+        parsed.item.text.trim()
+      ) {
+        latestMessage = parsed.item.text.trim();
+      }
+    } catch {
+      // Ignore non-JSONL transcript lines such as warnings.
+    }
+  }
+
+  return latestMessage;
+}
+
+type GithubAutomationOutcome = "already_done" | "needs_changes" | "blocked";
+
+function classifyAutomationOutcome(finalAgentMessage: string | null, executionSummary: string, exitCode: number | null): GithubAutomationOutcome {
+  const combined = `${finalAgentMessage ?? ""}\n${executionSummary}`.toLowerCase();
+
+  const alreadyDoneSignals = [
+    "already implemented",
+    "already appears to implement",
+    "already ships",
+    "no clear implementation gap",
+    "safe remediation is issue hygiene",
+    "close or update the issue",
+    "feature already"
+  ];
+
+  if (alreadyDoneSignals.some((signal) => combined.includes(signal))) {
+    return "already_done";
+  }
+
+  if (exitCode !== null && exitCode !== 0) {
+    return "blocked";
+  }
+
+  const blockedSignals = [
+    "cannot safely proceed",
+    "blocked",
+    "access is denied",
+    "sandbox setup",
+    "failed to",
+    "unable to"
+  ];
+  if (blockedSignals.some((signal) => combined.includes(signal))) {
+    return "blocked";
+  }
+
+  return "needs_changes";
+}
+
+function summarizeOutcome(outcome: GithubAutomationOutcome): string {
+  switch (outcome) {
+    case "already_done":
+      return "Codex found the requested behavior already present, so the recommended action is validation plus issue closure.";
+    case "needs_changes":
+      return "Codex found follow-up implementation work is still needed, so the issue should remain open with a concrete fix plan.";
+    case "blocked":
+      return "Codex could not produce a safe implementation decision, so the issue should remain open until the blocker is resolved.";
+  }
+}
+
 export function prepareChange(target: string): {
   run: RunRecord;
   change: {
@@ -175,10 +257,22 @@ export function createGithubResultPackage(runId: string): {
       requiresPlugin: true;
     };
     executionSummary: string;
+    automationOutcome: {
+      classification: GithubAutomationOutcome;
+      summary: string;
+      agentMessage: string | null;
+    };
     pluginPayloads: {
       github: {
         commentBody: string;
         status: string;
+        closeIssue: boolean;
+        issueState: "open" | "closed";
+        stateReason: "completed" | "reopened" | null;
+      };
+      slack: {
+        text: string;
+        status: "approved" | "blocked";
       };
     };
   };
@@ -187,9 +281,36 @@ export function createGithubResultPackage(runId: string): {
   const latestApproval = run.approvals.at(-1) ?? null;
   const readiness = getGithubUpdateReadiness(run);
   const automationJob = listAutomationJobs().find((job) => job.runId === runId);
+  const finalAgentMessage = readTranscriptFinalAgentMessage(automationJob?.execution?.transcriptPath ?? null);
   const executionSummary = automationJob?.execution
     ? `Agent execution: ${automationJob.execution.summary || `exit ${automationJob.execution.exitCode}`}`
     : "Agent execution: not run";
+  const outcome = classifyAutomationOutcome(
+    finalAgentMessage,
+    executionSummary,
+    automationJob?.execution?.exitCode ?? null
+  );
+  const outcomeSummary = summarizeOutcome(outcome);
+  const canCloseIssue = readiness.ready && outcome === "already_done";
+  const issueActionText = canCloseIssue
+    ? "Recommended GitHub action: close the issue as completed after validation."
+    : outcome === "needs_changes"
+      ? "Recommended GitHub action: keep the issue open and track the implementation work."
+      : "Recommended GitHub action: keep the issue open until the blocker is resolved.";
+  const commentSections = [
+    `SentinelOps result for ${runId}`,
+    `Summary: ${run.plan?.summary ?? "No plan summary available."}`,
+    `Approval: ${latestApproval?.status ?? "missing"}`,
+    `Tests recorded: ${run.tests.length}`,
+    run.githubTarget ? `Target: ${run.githubTarget}` : "Target: none",
+    executionSummary,
+    `Outcome: ${outcome}`,
+    outcomeSummary,
+    issueActionText
+  ];
+  if (finalAgentMessage) {
+    commentSections.push("", "Codex assessment:", finalAgentMessage);
+  }
   return {
     run,
     resultPackage: {
@@ -203,18 +324,28 @@ export function createGithubResultPackage(runId: string): {
         requiresPlugin: true
       },
       executionSummary,
+      automationOutcome: {
+        classification: outcome,
+        summary: outcomeSummary,
+        agentMessage: finalAgentMessage
+      },
       pluginPayloads: {
         github: {
-          commentBody: [
-            `SentinelOps result for ${runId}`,
-            `Summary: ${run.plan?.summary ?? "No plan summary available."}`,
-            `Approval: ${latestApproval?.status ?? "missing"}`,
-            `Tests recorded: ${run.tests.length}`,
-            run.githubTarget ? `Target: ${run.githubTarget}` : "Target: none",
-            executionSummary,
-            `Ready for protected GitHub update: ${readiness.ready ? "yes" : "no"}`
+          commentBody: [...commentSections, `Ready for protected GitHub update: ${readiness.ready ? "yes" : "no"}`].join("\n"),
+          status: readiness.ready ? (latestApproval?.status ?? "pending") : "blocked",
+          closeIssue: canCloseIssue,
+          issueState: canCloseIssue ? "closed" : "open",
+          stateReason: canCloseIssue ? "completed" : null
+        },
+        slack: {
+          text: [
+            `SentinelOps follow-up for ${runId}`,
+            `Repo target: ${run.githubTarget ?? "none"}`,
+            `Outcome: ${outcome}`,
+            outcomeSummary,
+            issueActionText
           ].join("\n"),
-          status: readiness.ready ? (latestApproval?.status ?? "pending") : "blocked"
+          status: readiness.ready ? "approved" : "blocked"
         }
       }
     }

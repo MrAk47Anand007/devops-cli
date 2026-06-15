@@ -1,11 +1,16 @@
+import { Link } from "react-router-dom";
 import type { RuntimeLiveResponse, Service } from "../lib/types";
 
 export function ServiceHealthPanel({
+  runtimeError,
+  runtimeLoading,
   runtime,
   services,
   loading,
   error
 }: {
+  runtimeError: Error | null;
+  runtimeLoading: boolean;
   runtime: RuntimeLiveResponse | null;
   services: Service[];
   loading: boolean;
@@ -58,9 +63,23 @@ export function ServiceHealthPanel({
                 <p className="mt-3 text-sm text-slate-300">
                   Revision: {runtimeService?.revision ?? "not available"}
                 </p>
-                <p className="mt-1 text-sm text-slate-400">
-                  {runtimeService?.revisionDetail ?? "Runtime snapshot has not reported a revision yet."}
-                </p>
+                {runtimeError ? (
+                  <p className="mt-1 text-sm text-amber-300">
+                    Runtime snapshot unavailable: {runtimeError.message}
+                  </p>
+                ) : runtimeLoading ? (
+                  <p className="mt-1 text-sm text-slate-400">Runtime snapshot is still loading.</p>
+                ) : (
+                  <p className="mt-1 text-sm text-slate-400">
+                    {runtimeService?.revisionDetail ?? "Runtime snapshot has not reported a revision yet."}
+                  </p>
+                )}
+                <Link
+                  className="mt-4 inline-flex text-sm text-cyan-300 hover:text-cyan-200"
+                  to={`/services/${service.id}`}
+                >
+                  Open service drill-down
+                </Link>
               </li>
             );
           })}

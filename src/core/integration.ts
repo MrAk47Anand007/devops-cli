@@ -10,6 +10,18 @@ export function simulateIntegration(provider: "slack" | "github", runId: string)
   };
 } {
   if (provider === "slack") {
+    const resultPackage = createGithubResultPackage(runId);
+    if (resultPackage.resultPackage.executionSummary !== "Agent execution: not run") {
+      return {
+        provider,
+        simulation: {
+          delivered: true,
+          preview: resultPackage.resultPackage.pluginPayloads.slack.text,
+          mode: "plugin-fallback"
+        }
+      };
+    }
+
     const approvalPackage = createApprovalPackage(runId, {
       includePlan: true,
       includeDiff: true,

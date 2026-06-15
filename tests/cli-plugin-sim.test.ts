@@ -70,6 +70,54 @@ describe("cli plugin simulation", () => {
     expect(slackPayload.simulation.delivered).toBe(true);
     expect(slackPayload.simulation.preview).toContain(runId);
 
+    await runCli([
+      "init",
+      "--repo",
+      "example/repo",
+      "--slack-channel",
+      "#ops-approvals",
+      "--agent-command",
+      "node",
+      "--agent-args",
+      "[\"-e\",\"console.log('Follow-up implementation changes are still needed in the codebase.')\"]",
+      "--enabled",
+      "true",
+      "--json"
+    ]);
+    const issue = await runCli([
+      "automation",
+      "seed-issue",
+      "--target",
+      "https://github.com/example/repo/issues/77",
+      "--service",
+      "svc-api",
+      "--json"
+    ]);
+    const issuePayload = JSON.parse(issue.stdout);
+    await runCli([
+      "automation",
+      "approve",
+      "--job",
+      issuePayload.job.id,
+      "--by",
+      "anand",
+      "--json"
+    ]);
+    await runCli(["automation", "run", "--job", issuePayload.job.id, "--json"]);
+
+    const slackResultSim = await runCli([
+      "integration",
+      "simulate",
+      "--provider",
+      "slack",
+      "--run",
+      issuePayload.run.id,
+      "--json"
+    ]);
+    const slackResultPayload = JSON.parse(slackResultSim.stdout);
+    expect(slackResultPayload.ok).toBe(true);
+    expect(slackResultPayload.simulation.preview).toContain("Outcome: needs_changes");
+
     const githubSim = await runCli([
       "integration",
       "simulate",

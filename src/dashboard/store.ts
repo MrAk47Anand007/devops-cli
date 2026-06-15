@@ -129,6 +129,27 @@ export class DashboardStore {
     return structuredClone(record);
   }
 
+  recordDeployEvent(input: {
+    serviceId: string;
+    version: string;
+    target: string;
+    timestamp: string;
+    judgment?: DeployRecord["judgment"];
+  }): DeployRecord {
+    const normalizedStatus =
+      input.target.includes("prod") || input.target.includes("deploy") || input.target.includes("workflow")
+        ? "healthy"
+        : "degraded";
+    return this.addDeploy({
+      serviceId: input.serviceId,
+      status: normalizedStatus,
+      version: input.version,
+      timestamp: input.timestamp,
+      target: input.target,
+      judgment: input.judgment ?? null
+    });
+  }
+
   getIncidents(): IncidentRecord[] {
     return structuredClone(this.state.incidents);
   }

@@ -92,6 +92,33 @@ describe("cli core context and planning", () => {
     expect(keyedParsed.value).toBe("75");
   });
 
+  it("blocks config writes that loosen rollback safety without approval", async () => {
+    await runCli(["config", "set", "guard.rollback.minConfidence", "90", "--json"]);
+
+    const blocked = await runCli([
+      "config",
+      "set",
+      "guard.rollback.minConfidence",
+      "80",
+      "--json"
+    ]);
+    const blockedParsed = JSON.parse(blocked.stdout);
+    expect(blockedParsed.ok).toBe(false);
+    expect(blockedParsed.error.code).toBe("CONFIG_GUARD_BLOCKED");
+
+    const approved = await runCli([
+      "config",
+      "set",
+      "guard.rollback.minConfidence",
+      "80",
+      "--approved",
+      "--json"
+    ]);
+    const approvedParsed = JSON.parse(approved.stdout);
+    expect(approvedParsed.ok).toBe(true);
+    expect(approvedParsed.value).toBe("80");
+  });
+
   it("supports guided init inputs and operator on off controls", async () => {
     const init = await runCli([
       "init",
@@ -113,6 +140,7 @@ describe("cli core context and planning", () => {
     expect(initPayload.ok).toBe(true);
     expect(initPayload.config.trackedRepos).toContain("example/repo");
     expect(initPayload.config.agentCommand).toBe("codex");
+    expect(initPayload.config.judgmentProvider).toBe("canned");
 
     const toggle = await runCli(["automation", "disable", "--json"]);
     const togglePayload = JSON.parse(toggle.stdout);

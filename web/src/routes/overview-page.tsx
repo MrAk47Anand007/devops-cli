@@ -1,15 +1,19 @@
+import { Link } from "react-router-dom";
 import { AutomationRunList } from "../components/automation-run-list";
 import { DeployTimeline } from "../components/deploy-timeline";
+import { LiveActivityPanel } from "../components/live-activity-panel";
 import { RuntimeHealthPanel } from "../components/runtime-health-panel";
 import { ServiceHealthPanel } from "../components/service-health-panel";
+import { useLiveDashboardRefresh } from "../hooks/use-live-dashboard-refresh";
 import { useDashboardQuery } from "../hooks/use-dashboard-query";
-import { fetchAutomationJobs, fetchDeploys, fetchRuntimeLive, fetchServices } from "../lib/api";
+import { fetchAutomationPipeline, fetchDeploys, fetchRuntimeLive, fetchServices } from "../lib/api";
 
 export function OverviewPage(): JSX.Element {
-  const servicesQuery = useDashboardQuery(fetchServices);
-  const runtimeQuery = useDashboardQuery(fetchRuntimeLive);
-  const deploysQuery = useDashboardQuery(fetchDeploys);
-  const jobsQuery = useDashboardQuery(fetchAutomationJobs);
+  const live = useLiveDashboardRefresh();
+  const servicesQuery = useDashboardQuery(fetchServices, [live.refreshToken]);
+  const runtimeQuery = useDashboardQuery(fetchRuntimeLive, [live.refreshToken]);
+  const deploysQuery = useDashboardQuery(fetchDeploys, [live.refreshToken]);
+  const jobsQuery = useDashboardQuery(fetchAutomationPipeline, [live.refreshToken]);
 
   return (
     <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
@@ -25,6 +29,8 @@ export function OverviewPage(): JSX.Element {
         <ServiceHealthPanel
           error={servicesQuery.error}
           loading={servicesQuery.loading}
+          runtimeError={runtimeQuery.error}
+          runtimeLoading={runtimeQuery.loading}
           runtime={runtimeQuery.data}
           services={servicesQuery.data?.services ?? []}
         />
@@ -38,19 +44,29 @@ export function OverviewPage(): JSX.Element {
       <div className="grid gap-6">
         <RuntimeHealthPanel
           error={runtimeQuery.error}
+          health={runtimeQuery.data?.health ?? []}
           loading={runtimeQuery.loading}
           runtime={runtimeQuery.data}
         />
+        <LiveActivityPanel
+          connected={live.connected}
+          error={live.error}
+          lastEvent={live.lastEvent}
+        />
         <AutomationRunList
           error={jobsQuery.error}
-          jobs={jobsQuery.data?.jobs ?? []}
+          items={jobsQuery.data?.items ?? []}
           loading={jobsQuery.loading}
         />
         <div className="rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-panel backdrop-blur">
           <h2 className="text-lg font-medium">Approvals</h2>
           <p className="mt-3 text-sm text-slate-300">
-            Pending decisions will appear here once the approvals inbox lands in the next slice.
+            Pending decisions are tracked in the live approvals workspace, mirrored from the same
+            backend stream driving this control center.
           </p>
+          <Link className="mt-4 inline-flex text-sm text-cyan-300 hover:text-cyan-200" to="/approvals">
+            Open approvals workspace
+          </Link>
         </div>
       </div>
     </section>

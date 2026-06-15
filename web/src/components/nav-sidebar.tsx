@@ -5,7 +5,11 @@ const navItems = [
   { label: "Overview", status: "Live", to: "/" },
   { label: "Automation", status: "Queue", to: "/automation" },
   { label: "Approvals", status: "Queue", to: "/approvals" },
+  { label: "Incidents", status: "Live", to: "/incidents" },
   { label: "Integrations", status: "Queue", to: "/integrations" }
+  ,
+  { label: "Memory", status: "Audit", to: "/memory" },
+  { label: "Settings", status: "Config", to: "/settings" }
 ];
 
 export function NavSidebar(): JSX.Element {
